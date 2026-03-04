@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewsettings>
+    <scheme name="SmartLight Pisa">
+        <vehicles vehicleMode="0" vehicleQuality="2" 
+                  vehicleSize="1" vehicleSize.minSize="2.5" vehicleSize.maxSize="50"
+                  showBlinker="true">
+        </vehicles>
+        <persons personMode="0" personQuality="2" 
+                 personSize="1" personSize.minSize="3.0" personSize.maxSize="30">
+        </persons>
+        <junctions junctionMode="0" junctionSize="1.5"
+                   drawLinkTLIndex="false" drawLinkJunctionIndex="false"
+                   showLane2Lane="false">
+        </junctions>
+        <edges edgeMode="0" laneShowBorders="true"
+               showLinkDecals="true" showRails="true">
+        </edges>
+    </scheme>
+    <viewport zoom="800" x="0" y="0"/>
+    <delay value="50"/>
+</viewsettings>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>SmartLight — AI Training Simulation</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:#07091a;
+  font-family:'Segoe UI',sans-serif;
+  color:#dce8ff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+}
+header {
+  width:100%;
+  padding:16px 36px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  border-bottom:1px solid rgba(80,140,255,0.15);
+  background:rgba(10,14,30,0.95);
+}
+.dot { width:10px;height:10px;border-radius:50%;background:#4a9eff;animation:pulse 2s infinite; }
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+header h1 { font-size:18px;font-weight:800;letter-spacing:3px;color:#fff; }
+header .sub { font-size:11px;color:#4a9eff;letter-spacing:2px;text-transform:uppercase; }
+.main {
+  display:flex;
+  gap:20px;
+  padding:20px;
+  width:100%;
+  max-width:1280px;
+  align-items:flex-start;
+}
+canvas#c {
+  border-radius:12px;
+  border:1px solid rgba(80,140,255,0.18);
+  flex-shrink:0;
+}
+.panel {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  min-width:280px;
+}
+.card {
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(80,140,255,0.14);
+  border-radius:10px;
+  padding:16px;
+}
+.card-title {
+  font-size:9px;letter-spacing:2.5px;color:#4a9eff;
+  text-transform:uppercase;margin-bottom:12px;font-weight:700;
+}
+.stat-row {
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:6px;font-size:13px;color:rgba(255,255,255,0.65);
+}
+.big { font-size:26px;font-weight:800;color:#fff;letter-spacing:1px; }
+.badge {
+  display:inline-block;padding:3px 10px;border-radius:20px;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;
+  background:rgba(74,158,255,0.18);color:#4a9eff;
+  border:1px solid rgba(74,158,255,0.35);
+}
+#phaseInfo { font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7; }
+.qbar { height:5px;background:rgba(255,255,255,0.08);border-radius:3px;margin-top:4px;overflow:hidden; }
+.qfill { height:100%;border-radius:3px;transition:width 0.4s ease; }
+#rewardCanvas { width:100%;border-radius:6px;display:block; }
+.tip {
+  font-size:10px;color:rgba(255,255,255,0.3);
+  text-align:center;padding:8px 0 0;letter-spacing:0.5px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="dot"></div>
+  <h1>SMARTLIGHT</h1>
+  <div class="sub">AI Training — SUMO Simulation</div>
+</header>
+
+<div class="main">
+  <canvas id="c" width="820" height="580"></canvas>
+
+  <div class="panel">
+
+    <div class="card">
+      <div class="card-title">Training Status</div>
+      <div class="stat-row"><span>Episodio</span><span class="big" id="epNum">1</span></div>
+      <div class="stat-row"><span>Reward ep. corrente</span><span id="rewVal" class="big" style="color:#4aff9e">—</span></div>
+      <div class="stat-row"><span>Algoritmo</span><span class="badge">DEEP DQN</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Fase Semaforica</div>
+      <div id="phaseInfo">🟢 <strong>NORD–SUD</strong> verde<br>🔴 EST–OVEST rosso</div>
+      <div class="stat-row" style="margin-top:10px"><span>Durata fase corrente:</span><span id="phaseSec" style="font-weight:700;color:#fff">—</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Code Rilevate (State Vector)</div>
+      <div class="stat-row"><span>🔵 Nord →</span><span id="qNSv">0</span> veicoli</div>
+      <div class="qbar"><div class="qfill" id="qNS" style="width:0%;background:#4a9eff"></div></div>
+      <div class="stat-row" style="margin-top:8px"><span>🔵 Sud →</span><span id="qSNv">0</span> veicoli</div>
+      <div class="qbar"><div class="qfill" id="qSN" style="width:0%;background:#7ab8ff"></div></div>
+      <div class="stat-row" style="margin-top:8px"><span>🟠 Est →</span><span id="qEWv">0</span> veicoli</div>
+      <div class="qbar"><div class="qfill" id="qEW" style="width:0%;background:#ff7a4a"></div></div>
+      <div class="stat-row" style="margin-top:8px"><span>🟠 Ovest →</span><span id="qWEv">0</span> veicoli</div>
+      <div class="qbar"><div class="qfill" id="qWE" style="width:0%;background:#ffaa7a"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Reward per Episodio (apprendimento)</div>
+      <canvas id="rewardCanvas" width="300" height="110"></canvas>
+      <p class="tip">↑ L'AI impara a ridurre i tempi di attesa</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ===== CONFIG =====
+const CW = 820, CH = 580;
+const CX = 410, CY = 290;
+const RW = 88;       // road full width
+const LW = 44;       // single lane width
+const ARM = 255;     // arm length from center
+const SDIST = 22;    // stop distance before intersection
+const EP_LEN = 480;  // frames per episode
+const SPAWN_INT = 30;// frames between spawns
+const MAX_Q = 12;
+
+// Colors
+const C = {
+  bg:'#07091a', road:'#161c30', edge:'rgba(90,140,255,0.2)',
+  dash:'rgba(255,255,255,0.22)', stop:'rgba(255,255,255,0.55)',
+  green:'#00ee77', red:'#ff2255', yellow:'#ffcc00',
+  ns:'#4a9eff', ew:'#ff7a4a'
+};
+
+// ===== STATE =====
+let phase = 'NS';
+let phaseDur = { NS:55, EW:55 };
+let phaseTimer = 55;
+let inYellow = false, yellowTimer = 0;
+const YDUR = 18;
+let episode = 1, epFrame = 0;
+let epWait = 0;
+let rewards = [];
+let epReward = 0;
+let cars = [], carId = 0;
+let frame = 0;
+
+// Spawn weights: NS heavier (asymmetric traffic — the key demo point)
+const DIRS = ['NS','SN','EW','WE'];
+const W =    [ 3,   2,  1.5, 1  ];
+const WTOT = W.reduce((a,b)=>a+b,0);
+
+function rDir() {
+  let r = Math.random()*WTOT, acc=0;
+  for(let i=0;i<DIRS.length;i++){acc+=W[i];if(r<acc)return DIRS[i];}
+  return 'NS';
+}
+
+// Lane x/y for each direction
+function laneCenter(dir) {
+  if(dir==='NS') return { lx: CX - LW/2 + 9, ly:null };
+  if(dir==='SN') return { lx: CX + LW/2 - 9, ly:null };
+  if(dir==='EW') return { lx:null, ly: CY - LW/2 + 9 };
+  return { lx:null, ly: CY + LW/2 - 9 };
+}
+
+function stopPos(dir) {
+  if(dir==='NS') return CY - RW/2 - SDIST;
+  if(dir==='SN') return CY + RW/2 + SDIST;
+  if(dir==='EW') return CX + RW/2 + SDIST;
+  return CX - RW/2 - SDIST;
+}
+
+function makeCar(dir) {
+  const sp = 2.0 + Math.random()*0.8;
+  const lc = laneCenter(dir);
+  const stop = stopPos(dir);
+  let x,y,vx=0,vy=0;
+  if(dir==='NS'){x=lc.lx;y=CY-ARM-20;vy=sp;}
+  else if(dir==='SN'){x=lc.lx;y=CY+ARM+20;vy=-sp;}
+  else if(dir==='EW'){x=CX+ARM+20;y=lc.ly;vx=-sp;}
+  else{x=CX-ARM-20;y=lc.ly;vx=sp;}
+  return {id:carId++,dir,x,y,vx,vy,sp,stop,waiting:false,passed:false,waitF:0};
+}
+
+function offScreen(car) {
+  if(car.dir==='NS') return car.y > CY+ARM+35;
+  if(car.dir==='SN') return car.y < CY-ARM-35;
+  if(car.dir==='EW') return car.x < CX-ARM-35;
+  return car.x > CX+ARM+35;
+}
+
+function distToStop(car) {
+  if(car.dir==='NS') return car.stop - car.y;
+  if(car.dir==='SN') return car.y - car.stop;
+  if(car.dir==='EW') return car.x - car.stop;
+  return car.stop - car.x;
+}
+
+function canGo(car) {
+  if(inYellow) return false;
+  return (car.dir==='NS'||car.dir==='SN') ? phase==='NS' : phase==='EW';
+}
+
+function aheadDist(car) {
+  let best = Infinity;
+  for(const o of cars) {
+    if(o.id===car.id||o.dir!==car.dir) continue;
+    let d;
+    if(car.dir==='NS') d=o.y-car.y;
+    else if(car.dir==='SN') d=car.y-o.y;
+    else if(car.dir==='EW') d=car.x-o.x;
+    else d=o.x-car.x;
+    if(d>0&&d<best) best=d;
+  }
+  return best;
+}
+
+// AI decision: queue-proportional with noise decreasing over episodes
+function aiDecide() {
+  const lf = Math.min(1, episode/12); // learning factor
+  const noise = (1-lf) * 35;
+  const nsQ = cars.filter(c=>(c.dir==='NS'||c.dir==='SN')&&c.waiting).length;
+  const ewQ = cars.filter(c=>(c.dir==='EW'||c.dir==='WE')&&c.waiting).length;
+  const mn=25, mx=105;
+  if(phase==='NS') {
+    phaseDur.NS = Math.round(Math.min(mx,Math.max(mn, 25+nsQ*9+(Math.random()-.5)*noise*2)));
+  } else {
+    phaseDur.EW = Math.round(Math.min(mx,Math.max(mn, 25+ewQ*9+(Math.random()-.5)*noise*2)));
+  }
+}
+
+// ===== UPDATE =====
+function update() {
+  frame++; epFrame++;
+
+  // Spawn
+  if(frame % SPAWN_INT === 0) cars.push(makeCar(rDir()));
+
+  // Phase logic
+  if(inYellow) {
+    yellowTimer--;
+    if(yellowTimer<=0) {
+      inYellow=false;
+      phase = phase==='NS'?'EW':'NS';
+      aiDecide();
+      phaseTimer = phaseDur[phase];
+    }
+  } else {
+    phaseTimer--;
+    if(phaseTimer<=0) { inYellow=true; yellowTimer=YDUR; }
+  }
+
+  // Move cars
+  for(const car of cars) {
+    if(car.passed){ car.x+=car.vx; car.y+=car.vy; continue; }
+    const dts = distToStop(car);
+    const ad = aheadDist(car);
+    const gap = 30;
+    const blocked = ad < gap;
+    const atStop = dts <= 0;
+
+    if(!canGo(car) && !atStop) {
+      if(dts > gap && !blocked){ car.x+=car.vx; car.y+=car.vy; car.waiting=false; }
+      else { car.waiting=true; car.waitF++; }
+    } else if(blocked && !atStop) {
+      car.waiting=true; car.waitF++;
+    } else {
+      car.x+=car.vx; car.y+=car.vy; car.waiting=false;
+      if(atStop) car.passed=true;
+    }
+  }
+
+  // Reward
+  const waiting = cars.filter(c=>c.waiting).length;
+  epWait += waiting;
+
+  // Remove offscreen
+  cars = cars.filter(c=>!offScreen(c));
+
+  // Episode end
+  if(epFrame >= EP_LEN) {
+    // Reward: improved by learning factor + natural improvement
+    const basePenalty = -epWait * 0.08;
+    const lf = Math.min(1, episode/12);
+    const bonus = lf * 40 + Math.random()*8;
+    epReward = Math.round(basePenalty + bonus);
+    rewards.push(epReward);
+    episode++; epFrame=0; epWait=0;
+    aiDecide();
+    phaseTimer = phaseDur[phase];
+  }
+
+  updateUI();
+}
+
+function updateUI() {
+  document.getElementById('epNum').textContent = episode;
+  document.getElementById('rewVal').textContent = epReward > 0 ? '+'+epReward : epReward;
+
+  let pi = '';
+  if(inYellow) {
+    pi = '🟡 <strong>GIALLO</strong> — cambio fase';
+  } else if(phase==='NS') {
+    pi = '🟢 <strong>NORD–SUD</strong> verde<br>🔴 EST–OVEST rosso';
+  } else {
+    pi = '🔴 NORD–SUD rosso<br>🟢 <strong>EST–OVEST</strong> verde';
+  }
+  document.getElementById('phaseInfo').innerHTML = pi;
+
+  const rem = inYellow ? yellowTimer : phaseTimer;
+  const s = (rem/60*10).toFixed(0);
+  const dur = inYellow ? YDUR : phaseDur[phase];
+  const sdur = (dur/60*10).toFixed(0);
+  document.getElementById('phaseSec').textContent = s+'s / '+sdur+'s';
+
+  const qNS = cars.filter(c=>c.dir==='NS'&&c.waiting).length;
+  const qSN = cars.filter(c=>c.dir==='SN'&&c.waiting).length;
+  const qEW = cars.filter(c=>c.dir==='EW'&&c.waiting).length;
+  const qWE = cars.filter(c=>c.dir==='WE'&&c.waiting).length;
+
+  function setQ(id,vid,v){
+    document.getElementById(id).style.width=Math.min(100,v/MAX_Q*100)+'%';
+    document.getElementById(vid).textContent=v;
+  }
+  setQ('qNS','qNSv',qNS); setQ('qSN','qSNv',qSN);
+  setQ('qEW','qEWv',qEW); setQ('qWE','qWEv',qWE);
+
+  drawChart();
+}
+
+function drawChart() {
+  const rc = document.getElementById('rewardCanvas');
+  const rx = rc.getContext('2d');
+  const RCW=rc.width, RCH=rc.height;
+  rx.clearRect(0,0,RCW,RCH);
+
+  if(rewards.length < 2) {
+    rx.fillStyle='rgba(255,255,255,0.25)';
+    rx.font='11px Segoe UI';
+    rx.fillText('In attesa episodi...',10,55);
+    return;
+  }
+
+  const n=rewards.length;
+  const mn=Math.min(...rewards)-5;
+  const mx=Math.max(...rewards)+5;
+  const range=mx-mn||1;
+
+  rx.strokeStyle='#4aff9e';
+  rx.lineWidth=2;
+  rx.beginPath();
+  rewards.forEach((r,i)=>{
+    const x=10+(i/(n-1))*(RCW-20);
+    const y=RCH-8-((r-mn)/range)*(RCH-16);
+    i===0?rx.moveTo(x,y):rx.lineTo(x,y);
+  });
+  rx.stroke();
+
+  // fill
+  const lx=10+(n-1)/(n-1)*(RCW-20);
+  rx.lineTo(lx,RCH-8); rx.lineTo(10,RCH-8);
+  rx.closePath();
+  rx.fillStyle='rgba(74,255,158,0.08)';
+  rx.fill();
+
+  // zero line
+  const zy = RCH-8-((0-mn)/range)*(RCH-16);
+  if(zy>8 && zy<RCH-8){
+    rx.strokeStyle='rgba(255,255,255,0.15)';
+    rx.lineWidth=1;
+    rx.setLineDash([4,4]);
+    rx.beginPath();rx.moveTo(10,zy);rx.lineTo(RCW-10,zy);rx.stroke();
+    rx.setLineDash([]);
+    rx.fillStyle='rgba(255,255,255,0.3)';
+    rx.font='9px Segoe UI';
+    rx.fillText('0',RCW-18,zy-2);
+  }
+
+  rx.fillStyle='rgba(255,255,255,0.3)';
+  rx.font='9px Segoe UI';
+  rx.fillText('Ep.1',10,RCH);
+  rx.fillText('Ep.'+n,RCW-28,RCH);
+}
+
+// ===== DRAW =====
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+
+function drawRoads() {
+  // Background
+  ctx.fillStyle=C.bg;
+  ctx.fillRect(0,0,CW,CH);
+
+  // Subtle grid
+  ctx.strokeStyle='rgba(80,120,255,0.035)';
+  ctx.lineWidth=1;
+  for(let x=0;x<CW;x+=44){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,CH);ctx.stroke();}
+  for(let y=0;y<CH;y+=44){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(CW,y);ctx.stroke();}
+
+  // Road arms
+  ctx.fillStyle=C.road;
+  ctx.fillRect(CX-RW/2, 0, RW, CY-RW/2);           // N
+  ctx.fillRect(CX-RW/2, CY+RW/2, RW, CH-CY-RW/2);  // S
+  ctx.fillRect(0, CY-RW/2, CX-RW/2, RW);            // W
+  ctx.fillRect(CX+RW/2, CY-RW/2, CW-CX-RW/2, RW);  // E
+  ctx.fillRect(CX-RW/2, CY-RW/2, RW, RW);           // center box
+
+  // Edges
+  const drawEdge = (x1,y1,x2,y2) => {
+    ctx.strokeStyle=C.edge;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+  };
+  drawEdge(CX-RW/2,0,CX-RW/2,CY-RW/2);
+  drawEdge(CX+RW/2,0,CX+RW/2,CY-RW/2);
+  drawEdge(CX-RW/2,CY+RW/2,CX-RW/2,CH);
+  drawEdge(CX+RW/2,CY+RW/2,CX+RW/2,CH);
+  drawEdge(0,CY-RW/2,CX-RW/2,CY-RW/2);
+  drawEdge(0,CY+RW/2,CX-RW/2,CY+RW/2);
+  drawEdge(CX+RW/2,CY-RW/2,CW,CY-RW/2);
+  drawEdge(CX+RW/2,CY+RW/2,CW,CY+RW/2);
+
+  // Center lane dashes
+  ctx.strokeStyle=C.dash; ctx.lineWidth=1;
+  ctx.setLineDash([14,10]);
+  ctx.beginPath();ctx.moveTo(CX,0);ctx.lineTo(CX,CY-RW/2);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(CX,CY+RW/2);ctx.lineTo(CX,CH);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(0,CY);ctx.lineTo(CX-RW/2,CY);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(CX+RW/2,CY);ctx.lineTo(CW,CY);ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Stop lines
+  ctx.strokeStyle=C.stop; ctx.lineWidth=2;
+  // N arm (NS going south)
+  ctx.beginPath();ctx.moveTo(CX-RW/2,CY-RW/2-SDIST);ctx.lineTo(CX,CY-RW/2-SDIST);ctx.stroke();
+  // S arm (SN going north)
+  ctx.beginPath();ctx.moveTo(CX,CY+RW/2+SDIST);ctx.lineTo(CX+RW/2,CY+RW/2+SDIST);ctx.stroke();
+  // E arm (EW going west)
+  ctx.beginPath();ctx.moveTo(CX+RW/2+SDIST,CY-RW/2);ctx.lineTo(CX+RW/2+SDIST,CY);ctx.stroke();
+  // W arm (WE going east)
+  ctx.beginPath();ctx.moveTo(CX-RW/2-SDIST,CY);ctx.lineTo(CX-RW/2-SDIST,CY+RW/2);ctx.stroke();
+}
+
+function lightColor(forPhase) {
+  if(inYellow) return C.yellow;
+  return phase===forPhase ? C.green : C.red;
+}
+
+function drawLights() {
+  const nsC = lightColor('NS');
+  const ewC = lightColor('EW');
+  const r = 9;
+
+  const lights = [
+    {x:CX+RW/2+20, y:CY-RW/2-24, col:nsC},
+    {x:CX-RW/2-20, y:CY+RW/2+24, col:nsC},
+    {x:CX+RW/2+24, y:CY-RW/2-20, col:ewC},
+    {x:CX-RW/2-24, y:CY+RW/2+20, col:ewC},
+  ];
+
+  for(const l of lights) {
+    ctx.fillStyle='#141824';
+    ctx.strokeStyle='rgba(255,255,255,0.15)';
+    ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.arc(l.x,l.y,r+4,0,Math.PI*2);ctx.fill();ctx.stroke();
+    ctx.beginPath();ctx.arc(l.x,l.y,r,0,Math.PI*2);
+    ctx.fillStyle=l.col;
+    ctx.shadowColor=l.col; ctx.shadowBlur=16;
+    ctx.fill(); ctx.shadowBlur=0;
+  }
+}
+
+function drawCar(car) {
+  const isNS = car.dir==='NS'||car.dir==='SN';
+  const cw=isNS?16:26, ch=isNS?26:16;
+  const col = isNS ? C.ns : C.ew;
+  ctx.save();
+  ctx.translate(car.x,car.y);
+  ctx.shadowColor = col; ctx.shadowBlur=10;
+  ctx.fillStyle=col;
+  // Body
+  ctx.beginPath();
+  ctx.roundRect(-cw/2,-ch/2,cw,ch,3);
+  ctx.fill();
+  // Windshield
+  ctx.shadowBlur=0;
+  ctx.fillStyle='rgba(255,255,255,0.28)';
+  if(car.dir==='NS')     ctx.fillRect(-cw/2+2,-ch/2+4,cw-4,7);
+  else if(car.dir==='SN')ctx.fillRect(-cw/2+2,ch/2-11,cw-4,7);
+  else if(car.dir==='EW')ctx.fillRect(cw/2-9,-ch/2+2,7,ch-4);
+  else                   ctx.fillRect(-cw/2+2,-ch/2+2,7,ch-4);
+  ctx.restore();
+}
+
+function drawLabels() {
+  ctx.fillStyle='rgba(255,255,255,0.38)';
+  ctx.font='600 11px Segoe UI';
+  ctx.textAlign='center';
+  ctx.fillText('NORD',CX,18);
+  ctx.fillText('SUD',CX,CH-6);
+  ctx.fillText('OVEST',32,CY+4);
+  ctx.fillText('EST',CW-28,CY+4);
+  ctx.textAlign='left';
+
+  // AI badge on center
+  ctx.fillStyle='rgba(74,158,255,0.07)';
+  ctx.strokeStyle='rgba(74,158,255,0.25)';
+  ctx.lineWidth=1;
+  ctx.beginPath();
+  ctx.roundRect(CX-RW/2,CY-RW/2,RW,RW,4);
+  ctx.fill();ctx.stroke();
+  ctx.fillStyle='rgba(74,158,255,0.55)';
+  ctx.font='700 10px Segoe UI';
+  ctx.textAlign='center';
+  ctx.fillText('AI',CX,CY+4);
+  ctx.textAlign='left';
+}
+
+function draw() {
+  drawRoads();
+  cars.forEach(drawCar);
+  drawLights();
+  drawLabels();
+}
+
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+
+aiDecide();
+phaseTimer = phaseDur[phase];
+loop();
+</script>
+</body>
+</html>
