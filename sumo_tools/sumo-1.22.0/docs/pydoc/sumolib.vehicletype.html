@@ -1,0 +1,147 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module sumolib.vehicletype</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="sumolib.html"><font color="#ffffff">sumolib</font></a>.vehicletype</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/delphi/testreports/sumo/git/tools/sumolib/vehicletype.py">c:\users\delphi\testreports\sumo\git\tools\sumolib\vehicletype.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;Eclipse&nbsp;SUMO,&nbsp;Simulation&nbsp;of&nbsp;Urban&nbsp;MObility;&nbsp;see&nbsp;https://eclipse.dev/sumo<br>
+#&nbsp;Copyright&nbsp;(C)&nbsp;2008-2025&nbsp;German&nbsp;Aerospace&nbsp;Center&nbsp;(DLR)&nbsp;and&nbsp;others.<br>
+#&nbsp;This&nbsp;program&nbsp;and&nbsp;the&nbsp;accompanying&nbsp;materials&nbsp;are&nbsp;made&nbsp;available&nbsp;under&nbsp;the<br>
+#&nbsp;terms&nbsp;of&nbsp;the&nbsp;Eclipse&nbsp;Public&nbsp;License&nbsp;2.0&nbsp;which&nbsp;is&nbsp;available&nbsp;at<br>
+#&nbsp;https://www.eclipse.org/legal/epl-2.0/<br>
+#&nbsp;This&nbsp;Source&nbsp;Code&nbsp;may&nbsp;also&nbsp;be&nbsp;made&nbsp;available&nbsp;under&nbsp;the&nbsp;following&nbsp;Secondary<br>
+#&nbsp;Licenses&nbsp;when&nbsp;the&nbsp;conditions&nbsp;for&nbsp;such&nbsp;availability&nbsp;set&nbsp;forth&nbsp;in&nbsp;the&nbsp;Eclipse<br>
+#&nbsp;Public&nbsp;License&nbsp;2.0&nbsp;are&nbsp;satisfied:&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License,&nbsp;version&nbsp;2<br>
+#&nbsp;or&nbsp;later&nbsp;which&nbsp;is&nbsp;available&nbsp;at<br>
+#&nbsp;https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html<br>
+#&nbsp;SPDX-License-Identifier:&nbsp;EPL-2.0&nbsp;OR&nbsp;GPL-2.0-or-later</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="json.html">json</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+<a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="sumolib.html">sumolib</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="sumolib.vehicletype.html#CreateVehTypeDistribution">CreateVehTypeDistribution</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="sumolib.vehicletype.html#CreateMultiVehTypeDistributions">CreateMultiVehTypeDistributions</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="sumolib.vehicletype.html#VehAttribute">VehAttribute</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CreateMultiVehTypeDistributions">class <strong>CreateMultiVehTypeDistributions</strong></a>(<a href="sumolib.vehicletype.html#CreateVehTypeDistribution">CreateVehTypeDistribution</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="CreateMultiVehTypeDistributions-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CreateMultiVehTypeDistributions-register_veh_type_distribution"><strong>register_veh_type_distribution</strong></a>(self, veh_type_dist, veh_attributes)</dt></dl>
+
+<dl><dt><a name="CreateMultiVehTypeDistributions-write_xml"><strong>write_xml</strong></a>(self, file_path)</dt><dd><tt>This&nbsp;function&nbsp;will&nbsp;overwrite&nbsp;existing&nbsp;files<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_path&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;file&nbsp;to&nbsp;write&nbsp;to</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="sumolib.vehicletype.html#CreateVehTypeDistribution">CreateVehTypeDistribution</a>:<br>
+<dl><dt><a name="CreateMultiVehTypeDistributions-add_attribute"><strong>add_attribute</strong></a>(self, attribute)</dt><dd><tt>Add&nbsp;an&nbsp;instance&nbsp;of&nbsp;the&nbsp;attribute&nbsp;class&nbsp;to&nbsp;the&nbsp;Parameters.&nbsp;Pass&nbsp;the&nbsp;sampling&nbsp;attempts&nbsp;"global"&nbsp;parameter<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute&nbsp;(<a href="#VehAttribute">VehAttribute</a>&nbsp;or&nbsp;dict):&nbsp;An&nbsp;instance&nbsp;of&nbsp;<a href="#VehAttribute">VehAttribute</a>&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;parameters&nbsp;to&nbsp;be&nbsp;passed&nbsp;to&nbsp;the&nbsp;<a href="#VehAttribute">VehAttribute</a>&nbsp;constructor</tt></dd></dl>
+
+<dl><dt><a name="CreateMultiVehTypeDistributions-create_veh_dist"><strong>create_veh_dist</strong></a>(self, xml_dom)</dt></dl>
+
+<dl><dt><a name="CreateMultiVehTypeDistributions-save_myself"><strong>save_myself</strong></a>(self, file_path)</dt><dd><tt>This&nbsp;function&nbsp;saves&nbsp;the&nbsp;class&nbsp;to&nbsp;a&nbsp;json&nbsp;format.&nbsp;Used&nbsp;for&nbsp;logging&nbsp;simulation&nbsp;inputs<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_path&nbsp;(str):&nbsp;path&nbsp;to&nbsp;save&nbsp;json&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="CreateMultiVehTypeDistributions-to_xml"><strong>to_xml</strong></a>(self, file_path)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CreateVehTypeDistribution">class <strong>CreateVehTypeDistribution</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="CreateVehTypeDistribution-__init__"><strong>__init__</strong></a>(self, seed<font color="#909090">=None</font>, size<font color="#909090">=100</font>, name<font color="#909090">='vehDist'</font>, resampling<font color="#909090">=100</font>, decimal_places<font color="#909090">=3</font>)</dt><dd><tt>Creates&nbsp;a&nbsp;VehicleType&nbsp;Distribution.<br>
+See&nbsp;https://sumo.dlr.de/docs/Definition_of_Vehicles,_Vehicle_Types,_and_Routes.html#vehicle_type_distributions<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;seed&nbsp;(int,&nbsp;optional):&nbsp;random&nbsp;seed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;(int,&nbsp;optional):&nbsp;number&nbsp;of&nbsp;vTypes&nbsp;in&nbsp;the&nbsp;distribution.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;(str,&nbsp;optional):&nbsp;alphanumerical&nbsp;ID&nbsp;used&nbsp;for&nbsp;the&nbsp;created&nbsp;vehicle&nbsp;type&nbsp;distribution.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;resampling&nbsp;(int,&nbsp;optional):&nbsp;number&nbsp;of&nbsp;attempts&nbsp;to&nbsp;resample&nbsp;a&nbsp;value&nbsp;until&nbsp;it&nbsp;lies&nbsp;in&nbsp;the&nbsp;specified&nbsp;bounds.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;decimal_places&nbsp;(int,&nbsp;optional):&nbsp;number&nbsp;of&nbsp;decimal&nbsp;places.</tt></dd></dl>
+
+<dl><dt><a name="CreateVehTypeDistribution-add_attribute"><strong>add_attribute</strong></a>(self, attribute)</dt><dd><tt>Add&nbsp;an&nbsp;instance&nbsp;of&nbsp;the&nbsp;attribute&nbsp;class&nbsp;to&nbsp;the&nbsp;Parameters.&nbsp;Pass&nbsp;the&nbsp;sampling&nbsp;attempts&nbsp;"global"&nbsp;parameter<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute&nbsp;(<a href="#VehAttribute">VehAttribute</a>&nbsp;or&nbsp;dict):&nbsp;An&nbsp;instance&nbsp;of&nbsp;<a href="#VehAttribute">VehAttribute</a>&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;parameters&nbsp;to&nbsp;be&nbsp;passed&nbsp;to&nbsp;the&nbsp;<a href="#VehAttribute">VehAttribute</a>&nbsp;constructor</tt></dd></dl>
+
+<dl><dt><a name="CreateVehTypeDistribution-create_veh_dist"><strong>create_veh_dist</strong></a>(self, xml_dom)</dt></dl>
+
+<dl><dt><a name="CreateVehTypeDistribution-save_myself"><strong>save_myself</strong></a>(self, file_path)</dt><dd><tt>This&nbsp;function&nbsp;saves&nbsp;the&nbsp;class&nbsp;to&nbsp;a&nbsp;json&nbsp;format.&nbsp;Used&nbsp;for&nbsp;logging&nbsp;simulation&nbsp;inputs<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_path&nbsp;(str):&nbsp;path&nbsp;to&nbsp;save&nbsp;json&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="CreateVehTypeDistribution-to_xml"><strong>to_xml</strong></a>(self, file_path)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="VehAttribute">class <strong>VehAttribute</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="VehAttribute-__init__"><strong>__init__</strong></a>(self, name, is_param<font color="#909090">=False</font>, distribution<font color="#909090">=None</font>, distribution_params<font color="#909090">=None</font>, bounds<font color="#909090">=None</font>, attribute_value<font color="#909090">=None</font>)</dt><dd><tt>This&nbsp;emmulates&nbsp;one&nbsp;line&nbsp;of&nbsp;example&nbsp;config.txt&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;https://sumo.dlr.de/docs/Tools/Misc.html#createvehtypedistributionpy<br>
+Either&nbsp;distribution&nbsp;or&nbsp;attribute_value&nbsp;should&nbsp;be&nbsp;populated<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;(str):&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;attribute.&nbsp;Examples:&nbsp;"tau",&nbsp;"sigma",&nbsp;"length"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is_param&nbsp;(bool,&nbsp;optional):&nbsp;is&nbsp;the&nbsp;attribute&nbsp;a&nbsp;parameter&nbsp;that&nbsp;should&nbsp;be&nbsp;added&nbsp;as&nbsp;a&nbsp;child&nbsp;element.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;distribution&nbsp;(str,&nbsp;optional):&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;distribution&nbsp;to&nbsp;use&nbsp;()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;distribution_params&nbsp;(Union[dict,&nbsp;Any],&nbsp;optional):&nbsp;the&nbsp;parameters&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;distribution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bounds&nbsp;(tuple,&nbsp;optional):&nbsp;the&nbsp;bounds&nbsp;of&nbsp;the&nbsp;distribution.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute_value&nbsp;(str,&nbsp;optional):&nbsp;if&nbsp;no&nbsp;distribution&nbsp;is&nbsp;given,&nbsp;the&nbsp;fixed&nbsp;value&nbsp;for&nbsp;the&nbsp;attribute</tt></dd></dl>
+
+<dl><dt><a name="VehAttribute-add_sampling_attempts"><strong>add_sampling_attempts</strong></a>(self, attempts)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>absolute_import</strong> = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0), 16384)<br>
+<strong>print_function</strong> = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 65536)</td></tr></table>
+</body></html>

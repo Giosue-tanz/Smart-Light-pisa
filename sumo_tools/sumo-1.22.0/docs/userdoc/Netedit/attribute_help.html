@@ -1,0 +1,5544 @@
+<!--
+MkDocs version : 1.6.0
+Build Date UTC : 04 February 2025 00:16:33
+Last edit: 03 February 2025
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Netedit/attribute_help.html">
+        <link rel="shortcut icon" href="../images/favicon.ico">
+        <title>Netedit attribute help - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-3.7.0.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+
+      <script>
+        // DARK MODE
+        function detectColorScheme(){
+          var theme="light";
+
+          if(localStorage.getItem("sumo-docs-theme")){
+              if(localStorage.getItem("sumo-docs-theme") == "dark"){
+                  var theme = "dark";
+              }
+          } else if(!window.matchMedia) {
+              return false;
+          } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              var theme = "dark";
+          }
+
+          if (theme=="dark") {
+              document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+        detectColorScheme();
+      </script>
+
+    </head>
+
+    <body>
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Tutorials/index.html" class="nav-link">Tutorials</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Publications.html" class="nav-link">Publications</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/index.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://eclipse.dev/sumo/contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa-solid fa-magnifying-glass"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse-sumo/sumo/edit/main/docs/web/docs/Netedit/attribute_help.md" class="nav-link"><i class="fa-brands fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            More <i class="fa-solid fa-circle-chevron-down"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://github.com/eclipse/sumo/issues">Report a Bug / Issue / Typo</a>
+                            <a class="dropdown-item" href="../Editing_Articles.html">Help on editing articles</a>
+                            <a class="dropdown-item" href="https://github.com/eclipse/sumo/commits/main/docs/web">Recent documentation changes</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mkdocs_keyboard_modal">Keyboard Shortcuts</a>
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                            <span class="dropdown-item" id="dark-mode-div">Dark mode <label id="theme-switch" class="theme-switch" for="checkbox_theme">
+                              <input type="checkbox" id="checkbox_theme">
+                          </label></span>
+                          </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="languagedrop" data-toggle="dropdown">
+                            <i class="fa-solid fa-language"></i> Languages <i class="fa-solid fa-circle-chevron-down"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <span class="dropdown-item">
+                              Translations are generated automatically by Google Translate:
+                            </span>
+                            <a class="dropdown-item" href="https://sumo-dlr-de.translate.goog/docs/Netedit/attribute_help.html?_x_tr_sl=en&_x_tr_tl=de">Deutsch</a>
+                            <a class="dropdown-item" href="https://sumo-dlr-de.translate.goog/docs/Netedit/attribute_help.html?_x_tr_sl=en&_x_tr_tl=es">Español</a>
+                            <a class="dropdown-item" href="https://sumo-dlr-de.translate.goog/docs/Netedit/attribute_help.html?_x_tr_sl=en&_x_tr_tl=fr">Français</a>
+                            <a class="dropdown-item" href="https://sumo-dlr-de.translate.goog/docs/Netedit/attribute_help.html?_x_tr_sl=en&_x_tr_tl=it">Italiano</a>
+                            <a class="dropdown-item" href="https://sumo-dlr-de.translate.goog/docs/Netedit/attribute_help.html?_x_tr_sl=en&_x_tr_tl=hu">Magyar</a>
+                            <a class="dropdown-item" href="https://sumo-dlr-de.translate.goog/docs/Netedit/attribute_help.html?_x_tr_sl=en&_x_tr_tl=tr">Türkçe</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="row">
+                <div class="col-md-3">
+                  <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                  
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed mb-1" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa-solid fa-angle-down"></span>
+        </button>
+    </div>
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll toc">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#netedit_attribute_help">Netedit attribute help</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#edge" class="nav-link">• edge</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#lane" class="nav-link">• lane</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#poly" class="nav-link">• poly</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#poi" class="nav-link">• poi</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#junction" class="nav-link">• junction</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#busstop" class="nav-link">• busStop</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#trainstop" class="nav-link">• trainStop</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#access" class="nav-link">&rarr; access</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#containerstop" class="nav-link">• containerStop</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#chargingstation" class="nav-link">• chargingStation</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#parkingarea" class="nav-link">• parkingArea</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#space" class="nav-link">&rarr; space</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#inductionloop" class="nav-link">• inductionLoop</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#laneareadetector" class="nav-link">• laneAreaDetector</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#entryexitdetector" class="nav-link">• entryExitDetector</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#detentry" class="nav-link">&rarr; detEntry</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#detexit" class="nav-link">&rarr; detExit</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#edgedata" class="nav-link">• edgeData</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#lanedata" class="nav-link">• laneData</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#instantinductionloop" class="nav-link">• instantInductionLoop</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#routeprobe" class="nav-link">• routeProbe</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#calibrator" class="nav-link">• calibrator</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#rerouter" class="nav-link">• rerouter</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#reroutersymbol" class="nav-link">&rarr; rerouterSymbol</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#interval" class="nav-link">&rarr; interval</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#destprobreroute" class="nav-link">&rarr; destProbReroute</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#closingreroute" class="nav-link">&rarr; closingReroute</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#closinglanereroute" class="nav-link">&rarr; closingLaneReroute</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#routeprobreroute" class="nav-link">&rarr; routeProbReroute</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#parkingareareroute" class="nav-link">&rarr; parkingAreaReroute</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#variablespeedsign" class="nav-link">• variableSpeedSign</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#variablespeedsignsymbol" class="nav-link">&rarr; variableSpeedSignSymbol</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#step" class="nav-link">&rarr; step</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#vaporizer" class="nav-link">• vaporizer</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#tractionsubstation" class="nav-link">• tractionSubstation</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#overheadwire" class="nav-link">• overheadWire</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#overheadwireclamp" class="nav-link">• overheadWireClamp</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#trip" class="nav-link">• trip</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#vehicle" class="nav-link">• vehicle</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#flow" class="nav-link">• flow</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#vtype" class="nav-link">• vType</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#route" class="nav-link">• route</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#taz" class="nav-link">• taz</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#tazsource" class="nav-link">&rarr; tazSource</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#tazsink" class="nav-link">&rarr; tazSink</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#edgerelation" class="nav-link">• edgeRelation</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#tazrelation" class="nav-link">&rarr; tazRelation</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#stop" class="nav-link">&rarr; stop</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#connection" class="nav-link">• connection</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#type" class="nav-link">• type</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#lanetype" class="nav-link">• laneType</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#routedistribution" class="nav-link">• routeDistribution</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#vtypedistribution" class="nav-link">• vTypeDistribution</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#crossing" class="nav-link">• crossing</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#walkingarea" class="nav-link">• walkingArea</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#person" class="nav-link">• person</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#persontrip" class="nav-link">&rarr; personTrip</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#ride" class="nav-link">&rarr; ride</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#walk" class="nav-link">&rarr; walk</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#personflow" class="nav-link">• personFlow</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#dataset" class="nav-link">• dataSet</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#datainterval" class="nav-link">&rarr; dataInterval</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#container" class="nav-link">• container</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#transport" class="nav-link">&rarr; transport</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#tranship" class="nav-link">&rarr; tranship</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#containerflow" class="nav-link">• containerFlow</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#internallane" class="nav-link">• internalLane</a>
+                </li>
+        </ul>
+    </div>
+
+    <div class="admonition conference" style="position: sticky; margin-top: 20px; margin-bottom:10px;">
+        <p>visit <a class="no-arrow-link" href="https://eclipse.dev/sumo">eclipse.dev/sumo</a></p>
+    </div>
+
+</div>
+                </div>
+                <div class="col-md-9 main-area" role="main">
+                   <!-- page.is_homepage seems to be broken in Mkdocs > 1.1.0 -->
+                  <ul class="breadcrumbs">
+    <script>
+        var pagePath = "/docs/Netedit/attribute_help.html";
+        var splitUrl = pagePath.split("/");
+        splitUrl.pop();
+        splitUrl.shift();
+        if (splitUrl[0] == 'docs') splitUrl.shift();
+        var homeLink = "../index.html";
+        document.write('<li class="breadcrumb-item"><a href="' + homeLink + '"><i class="fa-solid fa-house"></i></a></li>');
+        var prev = '';
+
+        var dirLink = splitUrl.map(function (el) {
+        el = prev + el; prev = el + '/'; return el;
+        });
+
+        for (let i = 0; i < splitUrl.length; i++) {
+            document.write("<li class=\"breadcrumb-item\"><a class=\"no-arrow-link\" href=\"../" + dirLink[i] + "\">" + splitUrl[i] + "</a></li>");
+        }
+    </script>
+    <li class="breadcrumb-item active">Netedit attribute help</li>
+</ul>
+                  <hTitles>Netedit attribute help<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                  
+                  
+
+<h1 id="netedit_attribute_help">Netedit attribute help<a class="headerlink" href="#netedit_attribute_help" title="Permanent link">#</a></h1>
+<h2 id="edge">edge<a class="headerlink" href="#edge" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Edge ID</td>
+</tr>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>The name of a node within the nodes-file the edge shall start at</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>The name of a node within the nodes-file the edge shall end at</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>non-negative float</td>
+<td>The maximum speed allowed on the edge in m/s <em>default:</em> <strong>13.89</strong></td>
+</tr>
+<tr>
+<td>priority</td>
+<td>integer</td>
+<td>The priority of the edge <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>numLanes</td>
+<td>non-negative integer</td>
+<td>The number of lanes of the edge <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>The name of a type within the SUMO edge type file</td>
+</tr>
+<tr>
+<td>allow</td>
+<td>list of vClasses</td>
+<td>Explicitly allows the given vehicle classes (not given will be not allowed) <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>disallow</td>
+<td>list of vClasses</td>
+<td>Explicitly disallows the given vehicle classes (not given will be allowed)</td>
+</tr>
+<tr>
+<td>shape</td>
+<td>list of unique positions</td>
+<td>If the shape is given it should start and end with the positions of the from-node and to-node</td>
+</tr>
+<tr>
+<td>length</td>
+<td>non-negative float</td>
+<td>The length of the edge in meter</td>
+</tr>
+<tr>
+<td>spreadType</td>
+<td>discrete string</td>
+<td>The spreadType defines how to compute the lane geometry from the edge geometry (used for visualization) <em>default:</em> <strong>right</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>street name (does not need to be unique, used for visualization)</td>
+</tr>
+<tr>
+<td>width</td>
+<td>non-negative float</td>
+<td>Lane width for all lanes of this edge in meters (used for visualization) <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>endOffset</td>
+<td>non-negative float</td>
+<td>Move the stop line back from the intersection by the given amount <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>shapeStart</td>
+<td>position</td>
+<td>Custom position in which shape start (by default position of junction from)</td>
+</tr>
+<tr>
+<td>shapeEnd</td>
+<td>position</td>
+<td>Custom position in which shape end (by default position of junction from)</td>
+</tr>
+<tr>
+<td>isBidi</td>
+<td>unique boolean</td>
+<td>Show if edge is bidirectional <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>distance</td>
+<td>unique float</td>
+<td>Distance <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>stopOffset</td>
+<td>non-negative float</td>
+<td>The stop offset as positive value in meters <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>stopOException</td>
+<td>list of vClasses</td>
+<td>Specifies, for which vehicle classes the stopOffset does NOT apply.</td>
+</tr>
+<tr>
+<td>isRoundabout</td>
+<td>unique boolean</td>
+<td>Whether this edge is part of a roundabout <em>default:</em> <strong>false</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lane">lane<a class="headerlink" href="#lane" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Lane ID (Automatic, non editable)</td>
+</tr>
+<tr>
+<td>index</td>
+<td>unique integer</td>
+<td>The enumeration index of the lane (0 is the rightmost lane, <NUMBER_LANES>-1 is the leftmost one)</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>non-negative float</td>
+<td>Speed in meters per second <em>default:</em> <strong>13.89</strong></td>
+</tr>
+<tr>
+<td>allow</td>
+<td>list of vClasses</td>
+<td>Explicitly allows the given vehicle classes (not given will be not allowed) <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>disallow</td>
+<td>list of vClasses</td>
+<td>Explicitly disallows the given vehicle classes (not given will be allowed)</td>
+</tr>
+<tr>
+<td>width</td>
+<td>non-negative float</td>
+<td>Width in meters (used for visualization) <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>endOffset</td>
+<td>non-negative float</td>
+<td>Move the stop line back from the intersection by the given amount <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>acceleration</td>
+<td>boolean</td>
+<td>Enable or disable lane as acceleration lane <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>customShape</td>
+<td>list of unique positions</td>
+<td>If the shape is given it overrides the computation based on edge shape</td>
+</tr>
+<tr>
+<td>opposite</td>
+<td>unique string</td>
+<td>If given, this defines the opposite direction lane</td>
+</tr>
+<tr>
+<td>changeLeft</td>
+<td>list of vClasses</td>
+<td>Permit changing left only for to the given vehicle classes <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>changeRight</td>
+<td>list of vClasses</td>
+<td>Permit changing right only for to the given vehicle classes <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Lane type description (optional)</td>
+</tr>
+<tr>
+<td>stopOffset</td>
+<td>non-negative float</td>
+<td>The stop offset as positive value in meters <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>stopOException</td>
+<td>list of vClasses</td>
+<td>Specifies, for which vehicle classes the stopOffset does NOT apply.</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="poly">poly<a class="headerlink" href="#poly" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of the polygon</td>
+</tr>
+<tr>
+<td>shape</td>
+<td>list of unique positions</td>
+<td>The shape of the polygon</td>
+</tr>
+<tr>
+<td>close shape</td>
+<td>boolean</td>
+<td>Toggle close or open shape</td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>The RGBA color with which the polygon shall be displayed <em>default:</em> <strong>red</strong></td>
+</tr>
+<tr>
+<td>fill</td>
+<td>boolean</td>
+<td>An information whether the polygon shall be filled <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>lineWidth</td>
+<td>non-negative float</td>
+<td>The default line width for drawing an unfilled polygon <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>layer</td>
+<td>float</td>
+<td>The layer in which the polygon lies <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>A typename for the polygon</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Polygon's name</td>
+</tr>
+<tr>
+<td>imgFile</td>
+<td>filename</td>
+<td>A bitmap to use for rendering this polygon</td>
+</tr>
+<tr>
+<td>relativePath</td>
+<td>boolean</td>
+<td>Enable or disable use image file as a relative path <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>angle</td>
+<td>angle[0, 360]</td>
+<td>Angle of rendered image in degree <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>geo</td>
+<td>boolean</td>
+<td>Enable or disable GEO attributes <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>geoShape</td>
+<td>list of unique positions</td>
+<td>A custom geo shape for this polygon</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="poi">poi<a class="headerlink" href="#poi" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of the POI</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique position</td>
+<td>The position in view</td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>The color with which the POI shall be displayed <em>default:</em> <strong>red</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>A typename for the POI</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>discrete string</td>
+<td>POI Icon</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of POI</td>
+</tr>
+<tr>
+<td>layer</td>
+<td>float</td>
+<td>The layer of the POI for drawing and selecting <em>default:</em> <strong>202.00</strong></td>
+</tr>
+<tr>
+<td>width</td>
+<td>non-negative float</td>
+<td>Width of rendered image in meters <em>default:</em> <strong>2.60</strong></td>
+</tr>
+<tr>
+<td>height</td>
+<td>non-negative float</td>
+<td>Height of rendered image in meters <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>imgFile</td>
+<td>filename</td>
+<td>A bitmap to use for rendering this POI</td>
+</tr>
+<tr>
+<td>relativePath</td>
+<td>boolean</td>
+<td>Enable or disable use image file as a relative path <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>angle</td>
+<td>angle[0, 360]</td>
+<td>Angle of rendered image in degree <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The name of the lane at which the POI is located at</td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>posLat</td>
+<td>float</td>
+<td>The lateral offset on the named lane at which the POI is located at <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>lon</td>
+<td>unique float</td>
+<td>The longitude position of the parking vehicle on the view</td>
+</tr>
+<tr>
+<td>lat</td>
+<td>unique float</td>
+<td>The latitude position of the parking vehicle on the view</td>
+</tr>
+</tbody>
+</table>
+<h2 id="junction">junction<a class="headerlink" href="#junction" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of the node</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique position</td>
+<td>The x-y-z position of the node on the plane in meters</td>
+</tr>
+<tr>
+<td>type</td>
+<td>discrete string</td>
+<td>An optional type for the node</td>
+</tr>
+<tr>
+<td>shape</td>
+<td>list of unique positions</td>
+<td>A custom shape for that node</td>
+</tr>
+<tr>
+<td>radius</td>
+<td>non-negative float</td>
+<td>Optional turning radius (for all corners) for that node in meters <em>default:</em> <strong>1.5</strong></td>
+</tr>
+<tr>
+<td>keepClear</td>
+<td>boolean</td>
+<td>Whether the junction-blocking-heuristic should be activated at this node <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>rightOfWay</td>
+<td>discrete string</td>
+<td>How to compute right of way rules at this node <em>default:</em> <strong>default</strong></td>
+</tr>
+<tr>
+<td>fringe</td>
+<td>discrete string</td>
+<td>Whether this junction is at the fringe of the network <em>default:</em> <strong>default</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Optional name of junction</td>
+</tr>
+<tr>
+<td>tlType</td>
+<td>discrete string</td>
+<td>An optional type for the traffic light algorithm</td>
+</tr>
+<tr>
+<td>tlLayout</td>
+<td>discrete string</td>
+<td>An optional layout for the traffic light plan</td>
+</tr>
+<tr>
+<td>tl</td>
+<td>string</td>
+<td>An optional id for the traffic light program</td>
+</tr>
+<tr>
+<td>isRoundabout</td>
+<td>boolean</td>
+<td>Whether this junction is part of a roundabout <em>default:</em> <strong>false</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="busstop">busStop<a class="headerlink" href="#busstop" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of bus stop</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The name of the lane the bus stop shall be located at</td>
+</tr>
+<tr>
+<td>startPos</td>
+<td>unique string</td>
+<td>The begin position on the lane (the lower position on the lane) in meters</td>
+</tr>
+<tr>
+<td>endPos</td>
+<td>unique string</td>
+<td>The end position on the lane (the higher position on the lane) in meters, must be larger than startPos by more than 0.1m</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of busStop</td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1 if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>lines</td>
+<td>list of strings</td>
+<td>Meant to be the names of the bus lines that stop at this bus stop. This is only used for visualization purposes</td>
+</tr>
+<tr>
+<td>personCapacity</td>
+<td>non-negative integer</td>
+<td>Larger numbers of persons trying to enter will create an upstream jam on the sidewalk <em>default:</em> <strong>6</strong></td>
+</tr>
+<tr>
+<td>parkingLength</td>
+<td>float</td>
+<td>Optional space definition for vehicles that park at this stop <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>The RGBA color with which the busStop shall be displayed</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trainstop">trainStop<a class="headerlink" href="#trainstop" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of train stop</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The name of the lane the train stop shall be located at</td>
+</tr>
+<tr>
+<td>startPos</td>
+<td>unique string</td>
+<td>The begin position on the lane (the lower position on the lane) in meters</td>
+</tr>
+<tr>
+<td>endPos</td>
+<td>unique string</td>
+<td>The end position on the lane (the higher position on the lane) in meters, must be larger than startPos by more than 0.1m</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of trainStop</td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>lines</td>
+<td>list of strings</td>
+<td>Meant to be the names of the train lines that stop at this train stop. This is only used for visualization purposes</td>
+</tr>
+<tr>
+<td>personCapacity</td>
+<td>non-negative integer</td>
+<td>Larger numbers of persons trying to enter will create an upstream jam on the sidewalk <em>default:</em> <strong>6</strong></td>
+</tr>
+<tr>
+<td>parkingLength</td>
+<td>float</td>
+<td>Optional space definition for vehicles that park at this stop <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>The RGBA color with which the trainStop shall be displayed</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="access">access<a class="headerlink" href="#access" title="Permanent link">#</a></h3>
+<p>child element of <a href="#busstop">busStop</a>, <a href="#trainstop">trainStop</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The name of the lane the stop access shall be located at</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique string</td>
+<td>The position on the lane (the lower position on the lane) in meters <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>length</td>
+<td>non-negative float</td>
+<td>The walking length of the access in meters <em>default:</em> <strong>-1.00</strong></td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>parent</td>
+<td>string</td>
+<td>Change element parent</td>
+</tr>
+</tbody>
+</table>
+<h2 id="containerstop">containerStop<a class="headerlink" href="#containerstop" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of container stop</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The name of the lane the container stop shall be located at</td>
+</tr>
+<tr>
+<td>startPos</td>
+<td>unique string</td>
+<td>The begin position on the lane (the lower position on the lane) in meters</td>
+</tr>
+<tr>
+<td>endPos</td>
+<td>unique string</td>
+<td>The end position on the lane (the higher position on the lane) in meters, must be larger than startPos by more than 0.1m</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of containerStop</td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>lines</td>
+<td>list of strings</td>
+<td>meant to be the names of the bus lines that stop at this container stop. This is only used for visualization purposes</td>
+</tr>
+<tr>
+<td>containerCapacity</td>
+<td>non-negative integer</td>
+<td>Larger numbers of container trying to enter will create an upstream jam on the sidewalk <em>default:</em> <strong>6</strong></td>
+</tr>
+<tr>
+<td>parkingLength</td>
+<td>float</td>
+<td>Optional space definition for vehicles that park at this stop <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>The RGBA color with which the containerStop shall be displayed</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chargingstation">chargingStation<a class="headerlink" href="#chargingstation" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of charging station</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>Lane of the charging station location</td>
+</tr>
+<tr>
+<td>startPos</td>
+<td>unique string</td>
+<td>Begin position in the specified lane</td>
+</tr>
+<tr>
+<td>endPos</td>
+<td>unique string</td>
+<td>End position in the specified lane</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of chargingStation</td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>power</td>
+<td>non-negative float</td>
+<td>Charging power in W <em>default:</em> <strong>22000.00</strong></td>
+</tr>
+<tr>
+<td>efficiency</td>
+<td>float</td>
+<td>Charging efficiency [0,1] <em>default:</em> <strong>0.95</strong></td>
+</tr>
+<tr>
+<td>chargeInTransit</td>
+<td>boolean</td>
+<td>Enable or disable charge in transit, i.e. vehicle must or must not to stop for charging <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>chargeDelay</td>
+<td>SUMOTime</td>
+<td>Time delay after the vehicles has reached / stopped on the charging station, before the energy transfer (charging) begins <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>chargeType</td>
+<td>discrete string</td>
+<td>Battery charging type <em>default:</em> <strong>normal</strong></td>
+</tr>
+<tr>
+<td>waitingTime</td>
+<td>SUMOTime</td>
+<td>Waiting time before start charging <em>default:</em> <strong>900.00</strong></td>
+</tr>
+<tr>
+<td>parkingArea</td>
+<td>string</td>
+<td>Parking area the charging station is located</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parkingarea">parkingArea<a class="headerlink" href="#parkingarea" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of ParkingArea</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The name of the lane the Parking Area shall be located at</td>
+</tr>
+<tr>
+<td>startPos</td>
+<td>unique string</td>
+<td>The begin position on the lane (the lower position on the lane) in meters</td>
+</tr>
+<tr>
+<td>endPos</td>
+<td>unique string</td>
+<td>The end position on the lane (the higher position on the lane) in meters, must be larger than startPos by more than 0.1m</td>
+</tr>
+<tr>
+<td>departPos</td>
+<td>string</td>
+<td>Lane position in that vehicle must depart when leaves parkingArea</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of parkingArea</td>
+</tr>
+<tr>
+<td>acceptedBadges</td>
+<td>list of strings</td>
+<td>Accepted badges to access this parkingArea</td>
+</tr>
+<tr>
+<td>roadsideCapacity</td>
+<td>non-negative integer</td>
+<td>The number of parking spaces for road-side parking <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>onRoad</td>
+<td>boolean</td>
+<td>If set, vehicles will park on the road lane and thereby reducing capacity <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>width</td>
+<td>non-negative float</td>
+<td>The width of the road-side parking spaces <em>default:</em> <strong>3.20</strong></td>
+</tr>
+<tr>
+<td>length</td>
+<td>non-negative float</td>
+<td>The length of the road-side parking spaces. By default (endPos - startPos) / roadsideCapacity <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>angle</td>
+<td>angle[0, 360]</td>
+<td>The angle of the road-side parking spaces relative to the lane angle, positive means clockwise <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>lefthand</td>
+<td>boolean</td>
+<td>Enable or disable lefthand position <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="space">space<a class="headerlink" href="#space" title="Permanent link">#</a></h3>
+<p>child element of <a href="#parkingarea">parkingArea</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pos</td>
+<td>unique position</td>
+<td>The x-y-z position of the node on the plane in meters</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of parking space</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td>The width of the road-side parking spaces</td>
+</tr>
+<tr>
+<td>length</td>
+<td>string</td>
+<td>The length of the road-side parking spaces</td>
+</tr>
+<tr>
+<td>angle</td>
+<td>string</td>
+<td>The angle of the road-side parking spaces relative to the lane angle, positive means clockwise</td>
+</tr>
+<tr>
+<td>slope</td>
+<td>angle[0, 360]</td>
+<td>The slope of the road-side parking spaces <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>parent</td>
+<td>string</td>
+<td>Change element parent</td>
+</tr>
+</tbody>
+</table>
+<h2 id="inductionloop">inductionLoop<a class="headerlink" href="#inductionloop" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of E1</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The id of the lane the detector shall be laid on. The lane must be a part of the network used</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique float</td>
+<td>The position on the lane the detector shall be laid on in meters. The position must be a value between -1*lane's length and the lane's length</td>
+</tr>
+<tr>
+<td>period</td>
+<td>SUMOTime</td>
+<td>The aggregation period the values the detector collects shall be summed up <em>default:</em> <strong>300.00</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of induction loop</td>
+</tr>
+<tr>
+<td>file</td>
+<td>filename</td>
+<td>The path to the output file</td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>Space separated list of vehicle type ids to consider</td>
+</tr>
+<tr>
+<td>nextEdges</td>
+<td>list of strings</td>
+<td>List of edge ids that must all be part of the future route of the vehicle to qualify for detection</td>
+</tr>
+<tr>
+<td>detectPersons</td>
+<td>discrete string</td>
+<td>Detect persons instead of vehicles (pedestrians or passengers) <em>default:</em> <strong>none</strong></td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="laneareadetector">laneAreaDetector<a class="headerlink" href="#laneareadetector" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of E2</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The id of the lane the detector shall be laid on. The lane must be a part of the network used</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique float</td>
+<td>The position on the lane the detector shall be laid on in meters</td>
+</tr>
+<tr>
+<td>length</td>
+<td>non-negative float</td>
+<td>The length of the detector in meters <em>default:</em> <strong>10.00</strong></td>
+</tr>
+<tr>
+<td>period</td>
+<td>SUMOTime</td>
+<td>The aggregation period the values the detector collects shall be summed up <em>default:</em> <strong>300.00</strong></td>
+</tr>
+<tr>
+<td>tl</td>
+<td>string</td>
+<td>The traffic light that triggers aggregation when switching</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of lane area detector</td>
+</tr>
+<tr>
+<td>file</td>
+<td>filename</td>
+<td>The path to the output file</td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>Space separated list of vehicle type ids to consider</td>
+</tr>
+<tr>
+<td>nextEdges</td>
+<td>list of strings</td>
+<td>List of edge ids that must all be part of the future route of the vehicle to qualify for detection</td>
+</tr>
+<tr>
+<td>detectPersons</td>
+<td>discrete string</td>
+<td>Detect persons instead of vehicles (pedestrians or passengers) <em>default:</em> <strong>none</strong></td>
+</tr>
+<tr>
+<td>timeThreshold</td>
+<td>SUMOTime</td>
+<td>The time-based threshold that describes how much time has to pass until a vehicle is recognized as halting) <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>speedThreshold</td>
+<td>non-negative float</td>
+<td>The speed-based threshold that describes how slow a vehicle has to be to be recognized as halting) in m/s <em>default:</em> <strong>1.39</strong></td>
+</tr>
+<tr>
+<td>jamThreshold</td>
+<td>non-negative float</td>
+<td>The maximum distance to the next standing vehicle in order to make this vehicle count as a participant to the jam in m <em>default:</em> <strong>10.00</strong></td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>show</td>
+<td>boolean</td>
+<td>Show detector in sumo-gui <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>lanes</td>
+<td>list of unique strings</td>
+<td>The sequence of lane ids in which the detector shall be laid on</td>
+</tr>
+<tr>
+<td>endPos</td>
+<td>unique float</td>
+<td>The end position on the lane the detector shall be laid on in meters</td>
+</tr>
+</tbody>
+</table>
+<h2 id="entryexitdetector">entryExitDetector<a class="headerlink" href="#entryexitdetector" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of E3</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique position</td>
+<td>X-Y position of detector in editor (Only used in netedit) <em>default:</em> <strong>0,0</strong></td>
+</tr>
+<tr>
+<td>period</td>
+<td>SUMOTime</td>
+<td>The aggregation period the values the detector collects shall be summed up <em>default:</em> <strong>300.00</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of Entry Exit detector</td>
+</tr>
+<tr>
+<td>file</td>
+<td>filename</td>
+<td>The path to the output file</td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>Space separated list of vehicle type ids to consider</td>
+</tr>
+<tr>
+<td>nextEdges</td>
+<td>list of strings</td>
+<td>List of edge ids that must all be part of the future route of the vehicle to qualify for detection</td>
+</tr>
+<tr>
+<td>detectPersons</td>
+<td>discrete string</td>
+<td>Detect persons instead of vehicles (pedestrians or passengers) <em>default:</em> <strong>none</strong></td>
+</tr>
+<tr>
+<td>openEntry</td>
+<td>boolean</td>
+<td>If set to true, no error will be reported if vehicles leave the detector without first entering it <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>timeThreshold</td>
+<td>SUMOTime</td>
+<td>The time-based threshold that describes how much time has to pass until a vehicle is recognized as halting) in s <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>speedThreshold</td>
+<td>float</td>
+<td>The speed-based threshold that describes how slow a vehicle has to be to be recognized as halting) in m/s <em>default:</em> <strong>1.39</strong></td>
+</tr>
+<tr>
+<td>expectArrival</td>
+<td>boolean</td>
+<td>Whether no warning should be issued when a vehicle arrives within the detector area. <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="detentry">detEntry<a class="headerlink" href="#detentry" title="Permanent link">#</a></h3>
+<p>child element of <a href="#entryexitdetector">entryExitDetector</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The id of the lane the detector shall be laid on. The lane must be a part of the network used</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique float</td>
+<td>The position on the lane the detector shall be laid on in meters</td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>parent</td>
+<td>string</td>
+<td>Change element parent</td>
+</tr>
+</tbody>
+</table>
+<h3 id="detexit">detExit<a class="headerlink" href="#detexit" title="Permanent link">#</a></h3>
+<p>child element of <a href="#entryexitdetector">entryExitDetector</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The id of the lane the detector shall be laid on. The lane must be a part of the network used</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique float</td>
+<td>The position on the lane the detector shall be laid on in meters</td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>parent</td>
+<td>string</td>
+<td>Change element parent</td>
+</tr>
+</tbody>
+</table>
+<h2 id="edgedata">edgeData<a class="headerlink" href="#edgedata" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of this set of measurements</td>
+</tr>
+<tr>
+<td>file</td>
+<td>filename</td>
+<td>The path to the output file. The path may be relative</td>
+</tr>
+<tr>
+<td>period</td>
+<td>string</td>
+<td>The aggregation period the values the detector collects shall be summed up</td>
+</tr>
+<tr>
+<td>begin</td>
+<td>string</td>
+<td>The time to start writing. If not given, the simulation's begin is used.</td>
+</tr>
+<tr>
+<td>end</td>
+<td>string</td>
+<td>The time to end writing. If not given the simulation's end is used.</td>
+</tr>
+<tr>
+<td>excludeEmpty</td>
+<td>discrete string</td>
+<td>If set to true, edges/lanes which were not used by a vehicle during this period will not be written <em>default:</em> <strong>default</strong></td>
+</tr>
+<tr>
+<td>withInternal</td>
+<td>boolean</td>
+<td>If set, junction internal edges/lanes will be written as well <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>maxTraveltime</td>
+<td>SUMOTime</td>
+<td>The maximum travel time in seconds to write if only very small movements occur <em>default:</em> <strong>100000</strong></td>
+</tr>
+<tr>
+<td>minSamples</td>
+<td>SUMOTime</td>
+<td>Consider an edge/lane unused if it has at most this many sampled seconds <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>speedThreshold</td>
+<td>float</td>
+<td>The maximum speed to consider a vehicle halting; <em>default:</em> <strong>0.1</strong></td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>space separated list of vehicle type ids to consider</td>
+</tr>
+<tr>
+<td>trackVehicles</td>
+<td>boolean</td>
+<td>whether aggregation should be performed over all vehicles that entered the edge/lane in the aggregation interval <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>detectPersons</td>
+<td>list of strings</td>
+<td>Whether pedestrians shall be recorded instead of vehicles. Allowed value is walk</td>
+</tr>
+<tr>
+<td>writeAttributes</td>
+<td>list of strings</td>
+<td>List of attribute names that shall be written</td>
+</tr>
+<tr>
+<td>edges</td>
+<td>list of strings</td>
+<td>Restrict output to the given list of edge ids</td>
+</tr>
+<tr>
+<td>edgesFile</td>
+<td>filename</td>
+<td>Restrict output to the given list of edges given in file</td>
+</tr>
+<tr>
+<td>aggregate</td>
+<td>boolean</td>
+<td>Whether the traffic statistic of all edges shall be aggregated into a single value <em>default:</em> <strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lanedata">laneData<a class="headerlink" href="#lanedata" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of this set of measurements</td>
+</tr>
+<tr>
+<td>file</td>
+<td>filename</td>
+<td>The path to the output file. The path may be relative</td>
+</tr>
+<tr>
+<td>period</td>
+<td>string</td>
+<td>The aggregation period the values the detector collects shall be summed up</td>
+</tr>
+<tr>
+<td>begin</td>
+<td>string</td>
+<td>The time to start writing. If not given, the simulation's begin is used.</td>
+</tr>
+<tr>
+<td>end</td>
+<td>string</td>
+<td>The time to end writing. If not given the simulation's end is used.</td>
+</tr>
+<tr>
+<td>excludeEmpty</td>
+<td>discrete string</td>
+<td>If set to true, edges/lanes which were not used by a vehicle during this period will not be written <em>default:</em> <strong>default</strong></td>
+</tr>
+<tr>
+<td>withInternal</td>
+<td>boolean</td>
+<td>If set, junction internal edges/lanes will be written as well <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>maxTraveltime</td>
+<td>SUMOTime</td>
+<td>The maximum travel time in seconds to write if only very small movements occur <em>default:</em> <strong>100000</strong></td>
+</tr>
+<tr>
+<td>minSamples</td>
+<td>SUMOTime</td>
+<td>Consider an edge/lane unused if it has at most this many sampled seconds <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>speedThreshold</td>
+<td>float</td>
+<td>The maximum speed to consider a vehicle halting; <em>default:</em> <strong>0.1</strong></td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>space separated list of vehicle type ids to consider</td>
+</tr>
+<tr>
+<td>trackVehicles</td>
+<td>boolean</td>
+<td>whether aggregation should be performed over all vehicles that entered the edge/lane in the aggregation interval <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>detectPersons</td>
+<td>list of strings</td>
+<td>Whether pedestrians shall be recorded instead of vehicles. Allowed value is walk</td>
+</tr>
+<tr>
+<td>writeAttributes</td>
+<td>list of strings</td>
+<td>List of attribute names that shall be written</td>
+</tr>
+<tr>
+<td>edges</td>
+<td>list of strings</td>
+<td>Restrict output to the given list of edge ids</td>
+</tr>
+<tr>
+<td>edgesFile</td>
+<td>filename</td>
+<td>Restrict output to the given list of edges given in file</td>
+</tr>
+<tr>
+<td>aggregate</td>
+<td>boolean</td>
+<td>Whether the traffic statistic of all edges shall be aggregated into a single value <em>default:</em> <strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="instantinductionloop">instantInductionLoop<a class="headerlink" href="#instantinductionloop" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of Instant Induction Loop (E1Instant)</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The id of the lane the detector shall be laid on. The lane must be a part of the network used</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique float</td>
+<td>The position on the lane the detector shall be laid on in meters. The position must be a value between -1*lane's length and the lane's length</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of instant induction loop</td>
+</tr>
+<tr>
+<td>file</td>
+<td>filename</td>
+<td>The path to the output file</td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>Space separated list of vehicle type ids to consider</td>
+</tr>
+<tr>
+<td>nextEdges</td>
+<td>list of strings</td>
+<td>List of edge ids that must all be part of the future route of the vehicle to qualify for detection</td>
+</tr>
+<tr>
+<td>detectPersons</td>
+<td>discrete string</td>
+<td>Detect persons instead of vehicles (pedestrians or passengers) <em>default:</em> <strong>none</strong></td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="routeprobe">routeProbe<a class="headerlink" href="#routeprobe" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of RouteProbe</td>
+</tr>
+<tr>
+<td>edge</td>
+<td>unique string</td>
+<td>The id of an edge in the simulation network</td>
+</tr>
+<tr>
+<td>period</td>
+<td>SUMOTime</td>
+<td>The frequency in which to report the distribution <em>default:</em> <strong>3600.00</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of route probe</td>
+</tr>
+<tr>
+<td>file</td>
+<td>filename</td>
+<td>The file for generated output</td>
+</tr>
+<tr>
+<td>begin</td>
+<td>SUMOTime</td>
+<td>The time at which to start generating output <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>Space separated list of vehicle type ids to consider (empty to affect all types)</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="calibrator">calibrator<a class="headerlink" href="#calibrator" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of Calibrator</td>
+</tr>
+<tr>
+<td>edge</td>
+<td>unique string</td>
+<td>The id of edge in the simulation network</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>non-negative float</td>
+<td>The position of the calibrator on the specified lane <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>period</td>
+<td>SUMOTime</td>
+<td>The aggregation interval in which to calibrate the flows. Default is step-length <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of Calibrator</td>
+</tr>
+<tr>
+<td>routeProbe</td>
+<td>string</td>
+<td>The id of the routeProbe element from which to determine the route distribution for generated vehicles</td>
+</tr>
+<tr>
+<td>output</td>
+<td>filename</td>
+<td>The output file for writing calibrator information or NULL</td>
+</tr>
+<tr>
+<td>jamThreshold</td>
+<td>non-negative float</td>
+<td>A threshold value to detect and clear unexpected jamming <em>default:</em> <strong>0.50</strong></td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>space separated list of vehicle type ids to consider (empty to affect all types)</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The id of lane in the simulation network</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rerouter">rerouter<a class="headerlink" href="#rerouter" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of Rerouter</td>
+</tr>
+<tr>
+<td>edges</td>
+<td>list of unique strings</td>
+<td>An edge id or a list of edge ids where vehicles shall be rerouted</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique position</td>
+<td>X,Y position in editor (Only used in netedit) <em>default:</em> <strong>0,0</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of Rerouter</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>probability[0, 1]</td>
+<td>The probability for vehicle rerouting (0-1) <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>timeThreshold</td>
+<td>SUMOTime</td>
+<td>The waiting time threshold (in s) that must be reached to activate rerouting (default -1 which disables the threshold) <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>The list of vehicle types that shall be affected by this rerouter (empty to affect all types)</td>
+</tr>
+<tr>
+<td>off</td>
+<td>boolean</td>
+<td>Whether the router should be inactive initially (and switched on in the gui) <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>optional</td>
+<td>boolean</td>
+<td>If rerouter is optional <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reroutersymbol">rerouterSymbol<a class="headerlink" href="#reroutersymbol" title="Permanent link">#</a></h3>
+<p>child element of <a href="#reroutersymbol">rerouterSymbol</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interval">interval<a class="headerlink" href="#interval" title="Permanent link">#</a></h3>
+<p>child element of <a href="#rerouter">rerouter</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>begin</td>
+<td>unique SUMOTime</td>
+<td>Begin <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>end</td>
+<td>unique SUMOTime</td>
+<td>End <em>default:</em> <strong>3600</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="destprobreroute">destProbReroute<a class="headerlink" href="#destprobreroute" title="Permanent link">#</a></h3>
+<p>child element of <a href="#interval">interval</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>edge</td>
+<td>unique string</td>
+<td>Edge ID</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>float</td>
+<td>SUMO Probability <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="closingreroute">closingReroute<a class="headerlink" href="#closingreroute" title="Permanent link">#</a></h3>
+<p>child element of <a href="#interval">interval</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>edge</td>
+<td>unique string</td>
+<td>Edge ID</td>
+</tr>
+<tr>
+<td>allow</td>
+<td>list of vClasses</td>
+<td>allowed vehicles</td>
+</tr>
+<tr>
+<td>disallow</td>
+<td>list of vClasses</td>
+<td>disallowed vehicles</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="closinglanereroute">closingLaneReroute<a class="headerlink" href="#closinglanereroute" title="Permanent link">#</a></h3>
+<p>child element of <a href="#interval">interval</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>Lane ID</td>
+</tr>
+<tr>
+<td>allow</td>
+<td>list of vClasses</td>
+<td>allowed vehicles</td>
+</tr>
+<tr>
+<td>disallow</td>
+<td>list of vClasses</td>
+<td>disallowed vehicles</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="routeprobreroute">routeProbReroute<a class="headerlink" href="#routeprobreroute" title="Permanent link">#</a></h3>
+<p>child element of <a href="#interval">interval</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>route</td>
+<td>unique string</td>
+<td>Route</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>float</td>
+<td>SUMO Probability <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parkingareareroute">parkingAreaReroute<a class="headerlink" href="#parkingareareroute" title="Permanent link">#</a></h3>
+<p>child element of <a href="#interval">interval</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parking</td>
+<td>unique string</td>
+<td>ParkingArea ID</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>float</td>
+<td>SUMO Probability <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>visible</td>
+<td>boolean</td>
+<td>Enable or disable visibility for parking area reroutes <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="variablespeedsign">variableSpeedSign<a class="headerlink" href="#variablespeedsign" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of Variable Speed Signal</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique position</td>
+<td>X-Y position of detector in editor (Only used in netedit) <em>default:</em> <strong>0,0</strong></td>
+</tr>
+<tr>
+<td>lanes</td>
+<td>list of unique strings</td>
+<td>List of Variable Speed Sign lanes</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of Variable Speed Signal</td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>Space separated list of vehicle type ids to consider (empty to affect all types)</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="variablespeedsignsymbol">variableSpeedSignSymbol<a class="headerlink" href="#variablespeedsignsymbol" title="Permanent link">#</a></h3>
+<p>child element of <a href="#variablespeedsign">variableSpeedSign</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step">step<a class="headerlink" href="#step" title="Permanent link">#</a></h3>
+<p>child element of <a href="#variablespeedsign">variableSpeedSign</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>unique SUMOTime</td>
+<td>Time</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>string</td>
+<td>Speed <em>default:</em> <strong>13.89</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vaporizer">vaporizer<a class="headerlink" href="#vaporizer" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Edge in which vaporizer is placed</td>
+</tr>
+<tr>
+<td>begin</td>
+<td>SUMOTime</td>
+<td>Start Time <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>end</td>
+<td>SUMOTime</td>
+<td>End Time <em>default:</em> <strong>3600</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of vaporizer</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tractionsubstation">tractionSubstation<a class="headerlink" href="#tractionsubstation" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Traction substation ID</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>unique position</td>
+<td>X-Y position of detector in editor (Only used in netedit) <em>default:</em> <strong>0,0</strong></td>
+</tr>
+<tr>
+<td>voltage</td>
+<td>non-negative float</td>
+<td>Voltage of at connection point for the overhead wire <em>default:</em> <strong>600</strong></td>
+</tr>
+<tr>
+<td>currentLimit</td>
+<td>non-negative float</td>
+<td>Current limit of the feeder line <em>default:</em> <strong>400</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="overheadwire">overheadWire<a class="headerlink" href="#overheadwire" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Overhead wire segment ID</td>
+</tr>
+<tr>
+<td>substationId</td>
+<td>unique string</td>
+<td>Substation to which the circuit is connected</td>
+</tr>
+<tr>
+<td>lanes</td>
+<td>list of unique strings</td>
+<td>List of consecutive lanes of the circuit</td>
+</tr>
+<tr>
+<td>startPos</td>
+<td>non-negative unique float</td>
+<td>Starting position in the specified lane <em>default:</em> <strong>0.0</strong></td>
+</tr>
+<tr>
+<td>endPos</td>
+<td>non-negative unique float</td>
+<td>Ending position in the specified lane <em>default:</em> <strong>179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00</strong></td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>forbiddenInnerLanes</td>
+<td>list of strings</td>
+<td>Inner lanes, where placing of overhead wire is restricted</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="overheadwireclamp">overheadWireClamp<a class="headerlink" href="#overheadwireclamp" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Overhead wire clamp ID</td>
+</tr>
+<tr>
+<td>wireClampStart</td>
+<td>unique string</td>
+<td>ID of the overhead wire segment, to the start of which the overhead wire clamp is connected</td>
+</tr>
+<tr>
+<td>wireClampLaneStart</td>
+<td>unique string</td>
+<td>ID of the overhead wire segment lane of overheadWireIDStartClamp</td>
+</tr>
+<tr>
+<td>wireClampEnd</td>
+<td>unique string</td>
+<td>ID of the overhead wire segment, to the end of which the overhead wire clamp is connected</td>
+</tr>
+<tr>
+<td>wireClampLaneEnd</td>
+<td>unique string</td>
+<td>ID of the overhead wire segment lane of overheadWireIDEndClamp</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trip">trip<a class="headerlink" href="#trip" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The ID of trip</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>The id of the vehicle type to use for this trip <em>default:</em> <strong>DEFAULT_VEHTYPE</strong></td>
+</tr>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>The ID of the edge the trip starts at</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>The ID of the edge the trip ends at</td>
+</tr>
+<tr>
+<td>via</td>
+<td>list of unique strings</td>
+<td>List of intermediate edge ids which shall be part of the trip</td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>This vehicle's color <em>default:</em> <strong>yellow</strong></td>
+</tr>
+<tr>
+<td>departLane</td>
+<td>string</td>
+<td>The lane on which the vehicle shall be inserted <em>default:</em> <strong>first</strong></td>
+</tr>
+<tr>
+<td>departPos</td>
+<td>string</td>
+<td>The position at which the vehicle shall enter the net <em>default:</em> <strong>base</strong></td>
+</tr>
+<tr>
+<td>departSpeed</td>
+<td>string</td>
+<td>The speed with which the vehicle shall enter the network <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>arrivalLane</td>
+<td>string</td>
+<td>The lane at which the vehicle shall leave the network <em>default:</em> <strong>current</strong></td>
+</tr>
+<tr>
+<td>arrivalPos</td>
+<td>string</td>
+<td>The position at which the vehicle shall leave the network <em>default:</em> <strong>max</strong></td>
+</tr>
+<tr>
+<td>arrivalSpeed</td>
+<td>string</td>
+<td>The speed with which the vehicle shall leave the network <em>default:</em> <strong>current</strong></td>
+</tr>
+<tr>
+<td>line</td>
+<td>string</td>
+<td>A string specifying the id of a public transport line which can be used when specifying person rides</td>
+</tr>
+<tr>
+<td>personNumber</td>
+<td>non-negative integer</td>
+<td>The number of occupied seats when the vehicle is inserted <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>containerNumber</td>
+<td>non-negative integer</td>
+<td>The number of occupied container places when the vehicle is inserted <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>departPosLat</td>
+<td>string</td>
+<td>The lateral position on the departure lane at which the vehicle shall enter the net <em>default:</em> <strong>center</strong></td>
+</tr>
+<tr>
+<td>arrivalPosLat</td>
+<td>string</td>
+<td>The lateral position on the arrival lane at which the vehicle shall arrive <em>default:</em> <strong>center</strong></td>
+</tr>
+<tr>
+<td>insertionChecks</td>
+<td>string</td>
+<td>Insertion checks <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>depart</td>
+<td>string</td>
+<td>The departure time of the (first) trip which is generated using this trip definition <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>fromJunction</td>
+<td>unique string</td>
+<td>The name of the junction the trip starts at</td>
+</tr>
+<tr>
+<td>toJunction</td>
+<td>unique string</td>
+<td>The name of the junction the trip ends at</td>
+</tr>
+<tr>
+<td>fromTaz</td>
+<td>unique string</td>
+<td>The name of the TAZ the trip starts at</td>
+</tr>
+<tr>
+<td>toTaz</td>
+<td>unique string</td>
+<td>The name of the TAZ the trip ends at</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vehicle">vehicle<a class="headerlink" href="#vehicle" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The ID of the vehicle</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>The id of the vehicle type to use for this vehicle <em>default:</em> <strong>DEFAULT_VEHTYPE</strong></td>
+</tr>
+<tr>
+<td>route</td>
+<td>unique string</td>
+<td>The id of the route the vehicle shall drive along</td>
+</tr>
+<tr>
+<td>departEdge</td>
+<td>unique string</td>
+<td>The index of the edge within route the vehicle starts at</td>
+</tr>
+<tr>
+<td>arrivalEdge</td>
+<td>unique string</td>
+<td>The index of the edge within route the vehicle ends at</td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>This vehicle's color <em>default:</em> <strong>yellow</strong></td>
+</tr>
+<tr>
+<td>departLane</td>
+<td>string</td>
+<td>The lane on which the vehicle shall be inserted <em>default:</em> <strong>first</strong></td>
+</tr>
+<tr>
+<td>departPos</td>
+<td>string</td>
+<td>The position at which the vehicle shall enter the net <em>default:</em> <strong>base</strong></td>
+</tr>
+<tr>
+<td>departSpeed</td>
+<td>string</td>
+<td>The speed with which the vehicle shall enter the network <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>arrivalLane</td>
+<td>string</td>
+<td>The lane at which the vehicle shall leave the network <em>default:</em> <strong>current</strong></td>
+</tr>
+<tr>
+<td>arrivalPos</td>
+<td>string</td>
+<td>The position at which the vehicle shall leave the network <em>default:</em> <strong>max</strong></td>
+</tr>
+<tr>
+<td>arrivalSpeed</td>
+<td>string</td>
+<td>The speed with which the vehicle shall leave the network <em>default:</em> <strong>current</strong></td>
+</tr>
+<tr>
+<td>line</td>
+<td>string</td>
+<td>A string specifying the id of a public transport line which can be used when specifying person rides</td>
+</tr>
+<tr>
+<td>personNumber</td>
+<td>non-negative integer</td>
+<td>The number of occupied seats when the vehicle is inserted <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>containerNumber</td>
+<td>non-negative integer</td>
+<td>The number of occupied container places when the vehicle is inserted <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>departPosLat</td>
+<td>string</td>
+<td>The lateral position on the departure lane at which the vehicle shall enter the net <em>default:</em> <strong>center</strong></td>
+</tr>
+<tr>
+<td>arrivalPosLat</td>
+<td>string</td>
+<td>The lateral position on the arrival lane at which the vehicle shall arrive <em>default:</em> <strong>center</strong></td>
+</tr>
+<tr>
+<td>insertionChecks</td>
+<td>string</td>
+<td>Insertion checks <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>depart</td>
+<td>string</td>
+<td>The time step at which the vehicle shall enter the network <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="flow">flow<a class="headerlink" href="#flow" title="Permanent link">#</a></h2>
+<p>also child element of <a href="#calibrator">calibrator</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>route</td>
+<td>unique string</td>
+<td>The id of the route the vehicle shall drive along</td>
+</tr>
+<tr>
+<td>begin</td>
+<td>SUMOTime</td>
+<td>First calibrator flow departure time <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>end</td>
+<td>SUMOTime</td>
+<td>End of departure interval <em>default:</em> <strong>3600</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>This vehicle's color <em>default:</em> <strong>yellow</strong></td>
+</tr>
+<tr>
+<td>departLane</td>
+<td>string</td>
+<td>The lane on which the vehicle shall be inserted <em>default:</em> <strong>first</strong></td>
+</tr>
+<tr>
+<td>departPos</td>
+<td>string</td>
+<td>The position at which the vehicle shall enter the net <em>default:</em> <strong>base</strong></td>
+</tr>
+<tr>
+<td>departSpeed</td>
+<td>string</td>
+<td>The speed with which the vehicle shall enter the network <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>arrivalLane</td>
+<td>string</td>
+<td>The lane at which the vehicle shall leave the network <em>default:</em> <strong>current</strong></td>
+</tr>
+<tr>
+<td>arrivalPos</td>
+<td>string</td>
+<td>The position at which the vehicle shall leave the network <em>default:</em> <strong>max</strong></td>
+</tr>
+<tr>
+<td>arrivalSpeed</td>
+<td>string</td>
+<td>The speed with which the vehicle shall leave the network <em>default:</em> <strong>current</strong></td>
+</tr>
+<tr>
+<td>line</td>
+<td>string</td>
+<td>A string specifying the id of a public transport line which can be used when specifying person rides</td>
+</tr>
+<tr>
+<td>personNumber</td>
+<td>non-negative integer</td>
+<td>The number of occupied seats when the vehicle is inserted <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>containerNumber</td>
+<td>non-negative integer</td>
+<td>The number of occupied container places when the vehicle is inserted <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>departPosLat</td>
+<td>string</td>
+<td>The lateral position on the departure lane at which the vehicle shall enter the net <em>default:</em> <strong>center</strong></td>
+</tr>
+<tr>
+<td>arrivalPosLat</td>
+<td>string</td>
+<td>The lateral position on the arrival lane at which the vehicle shall arrive <em>default:</em> <strong>center</strong></td>
+</tr>
+<tr>
+<td>insertionChecks</td>
+<td>string</td>
+<td>Insertion checks <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>The id of the vehicle type to use for this calibrator flow <em>default:</em> <strong>DEFAULT_VEHTYPE</strong></td>
+</tr>
+<tr>
+<td>vehsPerHour</td>
+<td>string</td>
+<td>Number of vehicles per hour, equally spaced <em>default:</em> <strong>1800</strong></td>
+</tr>
+<tr>
+<td>speed</td>
+<td>string</td>
+<td>Vehicle's speed <em>default:</em> <strong>15.0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The ID of the flow</td>
+</tr>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>The ID of the edge the flow starts at</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>The ID of the edge the flow ends at</td>
+</tr>
+<tr>
+<td>via</td>
+<td>list of unique strings</td>
+<td>List of intermediate edge ids which shall be part of the flow</td>
+</tr>
+<tr>
+<td>terminate</td>
+<td>discrete string</td>
+<td>Criterion for flow termination <em>default:</em> <strong>end</strong></td>
+</tr>
+<tr>
+<td>spacing</td>
+<td>discrete string</td>
+<td>Criterion for flow spacing <em>default:</em> <strong>vehsPerHour</strong></td>
+</tr>
+<tr>
+<td>number</td>
+<td>non-negative integer</td>
+<td>probability for emitting a flow each second (not together with vehsPerHour or period) <em>default:</em> <strong>1800</strong></td>
+</tr>
+<tr>
+<td>period</td>
+<td>string</td>
+<td>Insert equally spaced flows at that period (not together with vehsPerHour or probability or poisson) <em>default:</em> <strong>2</strong></td>
+</tr>
+<tr>
+<td>probability</td>
+<td>string</td>
+<td>probability for emitting a flow each second (not together with vehsPerHour or period or poisson) <em>default:</em> <strong>0.5</strong></td>
+</tr>
+<tr>
+<td>poisson</td>
+<td>string</td>
+<td>Insert flow expected vehicles per second with poisson distributed insertion rate (not together with period or vehsPerHour or probability) <em>default:</em> <strong>0.5</strong></td>
+</tr>
+<tr>
+<td>fromJunction</td>
+<td>unique string</td>
+<td>The name of the junction the flow starts at</td>
+</tr>
+<tr>
+<td>toJunction</td>
+<td>unique string</td>
+<td>The name of the junction the flow ends at</td>
+</tr>
+<tr>
+<td>fromTaz</td>
+<td>unique string</td>
+<td>The name of the TAZ the flow starts at</td>
+</tr>
+<tr>
+<td>toTaz</td>
+<td>unique string</td>
+<td>The name of the TAZ the flow ends at</td>
+</tr>
+<tr>
+<td>departEdge</td>
+<td>unique string</td>
+<td>The index of the edge within route the flow starts at</td>
+</tr>
+<tr>
+<td>arrivalEdge</td>
+<td>unique string</td>
+<td>The index of the edge within route the flow ends at</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vtype">vType<a class="headerlink" href="#vtype" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>type ID</td>
+</tr>
+<tr>
+<td>typeDist.</td>
+<td>string</td>
+<td>Type distribution</td>
+</tr>
+<tr>
+<td>vClass</td>
+<td>discrete</td>
+<td>An abstract vehicle class <em>default:</em> <strong>passenger</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>This type's color</td>
+</tr>
+<tr>
+<td>length</td>
+<td>non-negative float</td>
+<td>The vehicle's netto-length (length) [m]</td>
+</tr>
+<tr>
+<td>minGap</td>
+<td>non-negative float</td>
+<td>Empty space after leader [m]</td>
+</tr>
+<tr>
+<td>maxSpeed</td>
+<td>non-negative float</td>
+<td>The vehicle's maximum velocity [m/s]</td>
+</tr>
+<tr>
+<td>speedFactor</td>
+<td>string</td>
+<td>The vehicle's expected multiplicator for lane speed limits (or a distribution specifier)</td>
+</tr>
+<tr>
+<td>desiredMaxSpeed</td>
+<td>non-negative float</td>
+<td>The vehicle's desired maximum velocity (interacts with speedFactor). Applicable when no speed limit applies (bicycles, some motorways) [m/s]</td>
+</tr>
+<tr>
+<td>emissionClass</td>
+<td>discrete string</td>
+<td>An abstract emission class</td>
+</tr>
+<tr>
+<td>guiShape</td>
+<td>discrete string</td>
+<td>How this vehicle is rendered</td>
+</tr>
+<tr>
+<td>width</td>
+<td>non-negative float</td>
+<td>The vehicle's width [m] (only used for drawing) <em>default:</em> <strong>1.8</strong></td>
+</tr>
+<tr>
+<td>height</td>
+<td>non-negative float</td>
+<td>The vehicle's height [m] (only used for drawing) <em>default:</em> <strong>1.5</strong></td>
+</tr>
+<tr>
+<td>parkingBadges</td>
+<td>list of strings</td>
+<td>The parking badges assigned to the vehicle</td>
+</tr>
+<tr>
+<td>imgFile</td>
+<td>filename</td>
+<td>Image file for rendering vehicles of this type (should be grayscale to allow functional coloring)</td>
+</tr>
+<tr>
+<td>laneChangeModel</td>
+<td>discrete string</td>
+<td>The model used for changing lanes <em>default:</em> <strong>default</strong></td>
+</tr>
+<tr>
+<td>carFollowModel</td>
+<td>discrete string</td>
+<td>The model used for car-following <em>default:</em> <strong>Krauss</strong></td>
+</tr>
+<tr>
+<td>personCapacity</td>
+<td>non-negative integer</td>
+<td>The number of persons (excluding an autonomous driver) the vehicle can transport</td>
+</tr>
+<tr>
+<td>containerCapacity</td>
+<td>non-negative integer</td>
+<td>The number of containers the vehicle can transport</td>
+</tr>
+<tr>
+<td>boardingDuration</td>
+<td>float</td>
+<td>The time required by a person to board the vehicle <em>default:</em> <strong>0.50</strong></td>
+</tr>
+<tr>
+<td>loadingDuration</td>
+<td>float</td>
+<td>The time required to load a container onto the vehicle <em>default:</em> <strong>90.00</strong></td>
+</tr>
+<tr>
+<td>latAlignment</td>
+<td>discrete string</td>
+<td>The preferred lateral alignment when using the sublane-model <em>default:</em> <strong>center</strong></td>
+</tr>
+<tr>
+<td>minGapLat</td>
+<td>non-negative float</td>
+<td>The minimum lateral gap at a speed difference of 50km/h when using the sublane-model <em>default:</em> <strong>0.12</strong></td>
+</tr>
+<tr>
+<td>maxSpeedLat</td>
+<td>non-negative float</td>
+<td>The maximum lateral speed when using the sublane-model <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>actionStepLength</td>
+<td>non-negative float</td>
+<td>The interval length for which vehicle performs its decision logic (acceleration and lane-changing) <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>probability</td>
+<td>non-negative float</td>
+<td>The probability when being added to a distribution without an explicit probability <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>osgFile</td>
+<td>string</td>
+<td>3D model file for this class</td>
+</tr>
+<tr>
+<td>carriageLength</td>
+<td>non-negative float</td>
+<td>Carriage lengths</td>
+</tr>
+<tr>
+<td>locomotiveLength</td>
+<td>non-negative float</td>
+<td>Locomotive lengths</td>
+</tr>
+<tr>
+<td>carriageGap</td>
+<td>non-negative float</td>
+<td>Gap between carriages <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>accel</td>
+<td>non-negative float</td>
+<td>The acceleration ability of vehicles of this type [m/s^2] <em>default:</em> <strong>2.60</strong></td>
+</tr>
+<tr>
+<td>decel</td>
+<td>non-negative float</td>
+<td>The deceleration ability of vehicles of this type [m/s^2] <em>default:</em> <strong>4.50</strong></td>
+</tr>
+<tr>
+<td>apparentDecel</td>
+<td>non-negative float</td>
+<td>The apparent deceleration of the vehicle as used by the standard model [m/s^2] <em>default:</em> <strong>4.50</strong></td>
+</tr>
+<tr>
+<td>emergencyDecel</td>
+<td>non-negative float</td>
+<td>The maximal physically possible deceleration for the vehicle [m/s^2] <em>default:</em> <strong>9.00</strong></td>
+</tr>
+<tr>
+<td>sigma</td>
+<td>float</td>
+<td>Car-following model parameter <em>default:</em> <strong>0.50</strong></td>
+</tr>
+<tr>
+<td>tau</td>
+<td>non-negative float</td>
+<td>Car-following model parameter <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>tmp1</td>
+<td>string</td>
+<td>SKRAUSSX parameter 1</td>
+</tr>
+<tr>
+<td>tmp2</td>
+<td>string</td>
+<td>SKRAUSSX parameter 2</td>
+</tr>
+<tr>
+<td>tmp3</td>
+<td>string</td>
+<td>SKRAUSSX parameter 3</td>
+</tr>
+<tr>
+<td>tmp4</td>
+<td>string</td>
+<td>SKRAUSSX parameter 4</td>
+</tr>
+<tr>
+<td>tmp5</td>
+<td>string</td>
+<td>SKRAUSSX parameter 5</td>
+</tr>
+<tr>
+<td>tpreview</td>
+<td>non-negative float</td>
+<td>EIDM Look ahead / preview parameter [s] <em>default:</em> <strong>4.00</strong></td>
+</tr>
+<tr>
+<td>treaction</td>
+<td>non-negative float</td>
+<td>EIDM AP Reaction Time parameter [s] <em>default:</em> <strong>0.50</strong></td>
+</tr>
+<tr>
+<td>tPersDrive</td>
+<td>non-negative float</td>
+<td>EIDM Wiener Process parameter for the Driving Error [s] <em>default:</em> <strong>3.00</strong></td>
+</tr>
+<tr>
+<td>tPersEstimate</td>
+<td>non-negative float</td>
+<td>EIDM Wiener Process parameter for the Estimation Error [s] <em>default:</em> <strong>10.00</strong></td>
+</tr>
+<tr>
+<td>ccoolness</td>
+<td>float</td>
+<td>EIDM Coolness parameter of the Enhanced IDM [-] <em>default:</em> <strong>0.99</strong></td>
+</tr>
+<tr>
+<td>sigmaleader</td>
+<td>non-negative float</td>
+<td>EIDM leader speed estimation error parameter [-] <em>default:</em> <strong>0.02</strong></td>
+</tr>
+<tr>
+<td>sigmagap</td>
+<td>non-negative float</td>
+<td>EIDM gap estimation error parameter [-] <em>default:</em> <strong>0.10</strong></td>
+</tr>
+<tr>
+<td>sigmaerror</td>
+<td>non-negative float</td>
+<td>EIDM driving error parameter [-] <em>default:</em> <strong>0.04</strong></td>
+</tr>
+<tr>
+<td>jerkmax</td>
+<td>non-negative float</td>
+<td>EIDM maximal jerk parameter [m/s^3] <em>default:</em> <strong>3.00</strong></td>
+</tr>
+<tr>
+<td>epsilonacc</td>
+<td>non-negative float</td>
+<td>EIDM maximal negative acceleration between two Action Points (threshold) [m/s^2] <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>taccmax</td>
+<td>non-negative float</td>
+<td>EIDM Time parameter until vehicle reaches amax after startup/driveoff [s] <em>default:</em> <strong>1.20</strong></td>
+</tr>
+<tr>
+<td>Mflatness</td>
+<td>non-negative float</td>
+<td>EIDM Flatness parameter of startup/driveoff curve [-] <em>default:</em> <strong>2.00</strong></td>
+</tr>
+<tr>
+<td>Mbegin</td>
+<td>non-negative float</td>
+<td>EIDM Shift parameter of startup/driveoff curve [-] <em>default:</em> <strong>0.70</strong></td>
+</tr>
+<tr>
+<td>vehdynamics</td>
+<td>boolean</td>
+<td>EIDM parameter if model shall include vehicle dynamics into the acceleration calculation [0/1] <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>maxvehpreview</td>
+<td>non-negative integer</td>
+<td>EIDM parameter how many vehicles are taken into the preview calculation of the driver (at least always 1!) [-] <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>tauLast</td>
+<td>non-negative float</td>
+<td>Peter Wagner 2009 parameter <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>apProb</td>
+<td>non-negative float</td>
+<td>Peter Wagner 2009 parameter <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>adaptFactor</td>
+<td>non-negative float</td>
+<td>IDMM parameter <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>adaptTime</td>
+<td>non-negative float</td>
+<td>IDMM parameter <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>cc1</td>
+<td>non-negative float</td>
+<td>W99 parameter <em>default:</em> <strong>1.3</strong></td>
+</tr>
+<tr>
+<td>cc2</td>
+<td>non-negative float</td>
+<td>W99 parameter <em>default:</em> <strong>8.0</strong></td>
+</tr>
+<tr>
+<td>cc3</td>
+<td>non-negative float</td>
+<td>W99 parameter <em>default:</em> <strong>-12.0</strong></td>
+</tr>
+<tr>
+<td>cc4</td>
+<td>non-negative float</td>
+<td>W99 parameter <em>default:</em> <strong>-0.25</strong></td>
+</tr>
+<tr>
+<td>cc5</td>
+<td>non-negative float</td>
+<td>W99 parameter <em>default:</em> <strong>0.35</strong></td>
+</tr>
+<tr>
+<td>cc6</td>
+<td>non-negative float</td>
+<td>W99 parameter <em>default:</em> <strong>6.0</strong></td>
+</tr>
+<tr>
+<td>cc7</td>
+<td>non-negative float</td>
+<td>W99 parameter <em>default:</em> <strong>0.25</strong></td>
+</tr>
+<tr>
+<td>cc8</td>
+<td>non-negative float</td>
+<td>W99 parameter <em>default:</em> <strong>2.0</strong></td>
+</tr>
+<tr>
+<td>cc9</td>
+<td>non-negative float</td>
+<td>W99 parameter <em>default:</em> <strong>1.5</strong></td>
+</tr>
+<tr>
+<td>security</td>
+<td>string</td>
+<td>Wiedemann parameter</td>
+</tr>
+<tr>
+<td>estimation</td>
+<td>string</td>
+<td>Wiedemann parameter</td>
+</tr>
+<tr>
+<td>collisionMinGapFactor</td>
+<td>string</td>
+<td>MinGap factor parameter</td>
+</tr>
+<tr>
+<td>k</td>
+<td>string</td>
+<td>K parameter</td>
+</tr>
+<tr>
+<td>phi</td>
+<td>string</td>
+<td>Kerner Phi parameter</td>
+</tr>
+<tr>
+<td>delta</td>
+<td>string</td>
+<td>IDM Delta parameter</td>
+</tr>
+<tr>
+<td>stepping</td>
+<td>string</td>
+<td>IDM Stepping parameter</td>
+</tr>
+<tr>
+<td>trainType</td>
+<td>discrete string</td>
+<td>Train Types <em>default:</em> <strong>NGT400</strong></td>
+</tr>
+<tr>
+<td>jmCrossingGap</td>
+<td>non-negative float</td>
+<td>Minimum distance to pedestrians that are walking towards the conflict point with the ego vehicle. <em>default:</em> <strong>10</strong></td>
+</tr>
+<tr>
+<td>jmIgnoreKeepClearTime</td>
+<td>float</td>
+<td>The accumulated waiting time after which a vehicle will drive onto an intersection even though this might cause jamming. <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>jmDriveAfterYellowTime</td>
+<td>non-negative float</td>
+<td>This value causes vehicles to violate a yellow light if the duration of the yellow phase is lower than the given threshold. <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>jmDriveAfterRedTime</td>
+<td>float</td>
+<td>This value causes vehicles to violate a red light if the duration of the red phase is lower than the given threshold. <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>jmDriveRedSpeed</td>
+<td>string</td>
+<td>This value causes vehicles affected by jmDriveAfterRedTime to slow down when violating a red light. <em>default:</em> <strong>0.0</strong></td>
+</tr>
+<tr>
+<td>jmIgnoreFoeProb</td>
+<td>non-negative float</td>
+<td>This value causes vehicles to ignore foe vehicles that have right-of-way with the given probability. <em>default:</em> <strong>0.0</strong></td>
+</tr>
+<tr>
+<td>jmIgnoreFoeSpeed</td>
+<td>non-negative float</td>
+<td>This value is used in conjunction with jmIgnoreFoeProb. Only vehicles with a speed below or equal to the given value may be ignored. <em>default:</em> <strong>0.0</strong></td>
+</tr>
+<tr>
+<td>jmSigmaMinor</td>
+<td>string</td>
+<td>This value configures driving imperfection (dawdling) while passing a minor link. <em>default:</em> <strong>0.0</strong></td>
+</tr>
+<tr>
+<td>jmTimegapMinor</td>
+<td>non-negative float</td>
+<td>This value defines the minimum time gap when passing ahead of a prioritized vehicle.  <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>impatience</td>
+<td>non-negative float</td>
+<td>Willingess of drivers to impede vehicles with higher priority <em>default:</em> <strong>0.0</strong></td>
+</tr>
+<tr>
+<td>lcStrategic</td>
+<td>non-negative float</td>
+<td>The eagerness for performing strategic lane changing. Higher values result in earlier lane-changing. <em>default:</em> <strong>1.0</strong></td>
+</tr>
+<tr>
+<td>lcCooperative</td>
+<td>non-negative float</td>
+<td>The willingness for performing cooperative lane changing. Lower values result in reduced cooperation. <em>default:</em> <strong>1.0</strong></td>
+</tr>
+<tr>
+<td>lcSpeedGain</td>
+<td>non-negative float</td>
+<td>The eagerness for performing lane changing to gain speed. Higher values result in more lane-changing. <em>default:</em> <strong>1.0</strong></td>
+</tr>
+<tr>
+<td>lcKeepRight</td>
+<td>non-negative float</td>
+<td>The eagerness for following the obligation to keep right. Higher values result in earlier lane-changing. <em>default:</em> <strong>1.0</strong></td>
+</tr>
+<tr>
+<td>lcSublane</td>
+<td>non-negative float</td>
+<td>The eagerness for using the configured lateral alignment within the lane. Higher values result in increased willingness to sacrifice speed for alignment. <em>default:</em> <strong>1.0</strong></td>
+</tr>
+<tr>
+<td>lcOpposite</td>
+<td>non-negative float</td>
+<td>The eagerness for overtaking through the opposite-direction lane. Higher values result in more lane-changing. <em>default:</em> <strong>1.0</strong></td>
+</tr>
+<tr>
+<td>lcPushy</td>
+<td>non-negative float</td>
+<td>Willingness to encroach laterally on other drivers. <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>lcPushyGap</td>
+<td>non-negative float</td>
+<td>Minimum lateral gap when encroaching laterally on other drives (alternative way to define lcPushy) <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>lcAssertive</td>
+<td>non-negative float</td>
+<td>Willingness to accept lower front and rear gaps on the target lane. <em>default:</em> <strong>1.0</strong></td>
+</tr>
+<tr>
+<td>lcImpatience</td>
+<td>non-negative float</td>
+<td>Dynamic factor for modifying lcAssertive and lcPushy. <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>lcTimeToImpatience</td>
+<td>string</td>
+<td>Time to reach maximum impatience (of 1). Impatience grows whenever a lane-change manoeuvre is blocked. <em>default:</em> <strong>infinity</strong></td>
+</tr>
+<tr>
+<td>lcAccelLat</td>
+<td>non-negative float</td>
+<td>Maximum lateral acceleration per second. <em>default:</em> <strong>1.0</strong></td>
+</tr>
+<tr>
+<td>lcLookaheadLeft</td>
+<td>non-negative float</td>
+<td>Factor for configuring the strategic lookahead distance when a change to the left is necessary (relative to right lookahead). <em>default:</em> <strong>2.0</strong></td>
+</tr>
+<tr>
+<td>lcSpeedGainRight</td>
+<td>non-negative float</td>
+<td>Factor for configuring the threshold asymmetry when changing to the left or to the right for speed gain. <em>default:</em> <strong>0.1</strong></td>
+</tr>
+<tr>
+<td>lcMaxSpeedLatStanding</td>
+<td>string</td>
+<td>Upper bound on lateral speed when standing. <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>lcMaxSpeedLatFactor</td>
+<td>non-negative float</td>
+<td>Upper bound on lateral speed while moving computed as lcMaxSpeedLatStanding + lcMaxSpeedLatFactor * getSpeed() <em>default:</em> <strong>1.00</strong></td>
+</tr>
+<tr>
+<td>lcTurnAlignmentDistance</td>
+<td>non-negative float</td>
+<td>Distance to an upcoming turn on the vehicles route, below which the alignment should be dynamically adapted to match the turn direction. <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>lcOvertakeRight</td>
+<td>non-negative float</td>
+<td>The probability for violating rules gainst overtaking on the right. <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>lcKeepRightAcceptanceTime</td>
+<td>float</td>
+<td>Time threshold for the willingness to change right. <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>lcOvertakeDeltaSpeedFactor</td>
+<td>float</td>
+<td>Speed difference factor for the eagerness of overtaking a neighbor vehicle before changing lanes (threshold = factor<em>speedlimit). </em>default:<em> </em><em>0.00</em>*</td>
+</tr>
+</tbody>
+</table>
+<h2 id="route">route<a class="headerlink" href="#route" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of Route</td>
+</tr>
+<tr>
+<td>routeDist.</td>
+<td>string</td>
+<td>Route distribution</td>
+</tr>
+<tr>
+<td>edges</td>
+<td>list of unique strings</td>
+<td>The edges the vehicle shall drive along, given as their ids, separated using spaces</td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>This route's color</td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>non-negative integer</td>
+<td>The number of times that the edges of this route shall be repeated <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>cycleTime</td>
+<td>SUMOTime</td>
+<td>When defining a repeating route with stops and those stops use the until attribute, the times will be shifted forward by 'cycleTime' on each repeat <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="taz">taz<a class="headerlink" href="#taz" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of the TAZ</td>
+</tr>
+<tr>
+<td>shape</td>
+<td>list of unique positions</td>
+<td>The shape of the TAZ</td>
+</tr>
+<tr>
+<td>center</td>
+<td>position</td>
+<td>TAZ center</td>
+</tr>
+<tr>
+<td>fill</td>
+<td>boolean</td>
+<td>An information whether the TAZ shall be filled <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>The RGBA color with which the TAZ shall be displayed <em>default:</em> <strong>red</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of POI</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tazsource">tazSource<a class="headerlink" href="#tazsource" title="Permanent link">#</a></h3>
+<p>child element of <a href="#taz">taz</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>edge</td>
+<td>unique string</td>
+<td>The id of edge in the simulation network</td>
+</tr>
+<tr>
+<td>weight</td>
+<td>non-negative float</td>
+<td>Depart weight associated to this Edge <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tazsink">tazSink<a class="headerlink" href="#tazsink" title="Permanent link">#</a></h3>
+<p>child element of <a href="#taz">taz</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>edge</td>
+<td>unique string</td>
+<td>The id of edge in the simulation network</td>
+</tr>
+<tr>
+<td>weight</td>
+<td>non-negative float</td>
+<td>Arrival weight associated to this Edge <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="edgerelation">edgeRelation<a class="headerlink" href="#edgerelation" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>The ID of the edge the edgeRel starts at</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>The ID of the edge the edgeRel ends at</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tazrelation">tazRelation<a class="headerlink" href="#tazrelation" title="Permanent link">#</a></h3>
+<p>child element of <a href="#datainterval">dataInterval</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>The name of the TAZ the TAZRel starts at</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>The name of the TAZ the TAZRel ends at</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stop">stop<a class="headerlink" href="#stop" title="Permanent link">#</a></h3>
+<p>child element of <a href="#route">route</a>, <a href="#trip">trip</a>, <a href="#flow">flow</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lane</td>
+<td>unique string</td>
+<td>The name of the lane the stop shall be located at</td>
+</tr>
+<tr>
+<td>startPos</td>
+<td>unique float</td>
+<td>The begin position on the lane (the lower position on the lane) in meters</td>
+</tr>
+<tr>
+<td>endPos</td>
+<td>unique float</td>
+<td>The end position on the lane (the higher position on the lane) in meters, must be larger than startPos by more than 0.1m</td>
+</tr>
+<tr>
+<td>friendlyPos</td>
+<td>boolean</td>
+<td>If set, no error will be reported if element is placed behind the lane. Instead, it will be placed 0.1 meters from the lanes end or at position 0.1, if the position was negative and larger than the lanes length after multiplication with - 1 <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>posLat</td>
+<td>string</td>
+<td>The lateral offset on the named lane at which the vehicle must stop</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>non-negative SUMOTime</td>
+<td>Minimum duration for stopping <em>default:</em> <strong>60</strong></td>
+</tr>
+<tr>
+<td>until</td>
+<td>non-negative SUMOTime</td>
+<td>The time step at which the route continues <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>extension</td>
+<td>SUMOTime</td>
+<td>If set to a non-negative time value, then the stop duration can be extended at most by the extension value in seconds <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>triggered</td>
+<td>discrete string</td>
+<td>Whether a person or container or both may end the stop <em>default:</em> <strong>false</strong></td>
+</tr>
+<tr>
+<td>expected</td>
+<td>list of strings</td>
+<td>List of elements that must board the vehicle before it may continue</td>
+</tr>
+<tr>
+<td>join</td>
+<td>string</td>
+<td>Joins this train to another upon reaching the stop</td>
+</tr>
+<tr>
+<td>permitted</td>
+<td>list of strings</td>
+<td>List of elements that can board the vehicle before it may continue</td>
+</tr>
+<tr>
+<td>parking</td>
+<td>discrete string</td>
+<td>Whether the vehicle stops on the road or beside <em>default:</em> <strong>false</strong></td>
+</tr>
+<tr>
+<td>actType</td>
+<td>string</td>
+<td>Activity displayed for stopped person in GUI and output files</td>
+</tr>
+<tr>
+<td>tripId</td>
+<td>string</td>
+<td>Parameter to be applied to the vehicle to track the trip id within a cyclical public transport route</td>
+</tr>
+<tr>
+<td>line</td>
+<td>string</td>
+<td>New line attribute to be set on the vehicle when reaching this stop (for cyclical public transport route)</td>
+</tr>
+<tr>
+<td>onDemand</td>
+<td>boolean</td>
+<td>Whether the stop may be skipped if no passengers wants to embark or disembark <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>jump</td>
+<td>SUMOTime</td>
+<td>transfer time if there shall be a jump from this stop to the next route edge <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>split</td>
+<td>string</td>
+<td>Splits the train upon reaching the stop</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>busStop</td>
+<td>list of unique strings</td>
+<td>BusStop associated with this stop</td>
+</tr>
+<tr>
+<td>trainStop</td>
+<td>list of unique strings</td>
+<td>TrainStop associated with this stop</td>
+</tr>
+<tr>
+<td>containerStop</td>
+<td>list of unique strings</td>
+<td>ContainerStop associated with this stop</td>
+</tr>
+<tr>
+<td>chargingStation</td>
+<td>list of unique strings</td>
+<td>ChargingStation associated with this stop</td>
+</tr>
+<tr>
+<td>parkingArea</td>
+<td>list of unique strings</td>
+<td>ParkingArea associated with this stop</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>non-negative float</td>
+<td>Speed to be kept while driving between startPos and endPos <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>edge</td>
+<td>unique string</td>
+<td>Edge ID</td>
+</tr>
+</tbody>
+</table>
+<h2 id="connection">connection<a class="headerlink" href="#connection" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>The ID of the edge the vehicles leave</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>The ID of the edge the vehicles may reach when leaving 'from'</td>
+</tr>
+<tr>
+<td>fromLane</td>
+<td>unique integer</td>
+<td>the lane index of the incoming lane (numbers starting with 0)</td>
+</tr>
+<tr>
+<td>toLane</td>
+<td>unique integer</td>
+<td>the lane index of the outgoing lane (numbers starting with 0)</td>
+</tr>
+<tr>
+<td>pass</td>
+<td>boolean</td>
+<td>if set, vehicles which pass this (lane-2-lane) connection) will not wait <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>keepClear</td>
+<td>boolean</td>
+<td>if set to false, vehicles which pass this (lane-2-lane) connection) will not worry about blocking the intersection <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>contPos</td>
+<td>non-negative float</td>
+<td>If set to a more than 0 value, an internal junction will be built at this position (in m)/n from the start of the internal lane for this connection <em>default:</em> <strong>-1.00</strong></td>
+</tr>
+<tr>
+<td>uncontrolled</td>
+<td>boolean</td>
+<td>If set to true, This connection will not be TLS-controlled despite its node being controlled <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>visibility</td>
+<td>non-negative float</td>
+<td>Vision distance between vehicles <em>default:</em> <strong>-1.00</strong></td>
+</tr>
+<tr>
+<td>linkIndex</td>
+<td>integer</td>
+<td>sets index of this connection within the controlling traffic light <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>linkIndex2</td>
+<td>integer</td>
+<td>sets index for the internal junction of this connection within the controlling traffic light <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>allow</td>
+<td>list of vClasses</td>
+<td>Explicitly allows the given vehicle classes (not given will be not allowed) <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>disallow</td>
+<td>list of vClasses</td>
+<td>Explicitly disallows the given vehicle classes (not given will be allowed)</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>non-negative float</td>
+<td>sets custom speed limit for the connection <em>default:</em> <strong>-1.00</strong></td>
+</tr>
+<tr>
+<td>length</td>
+<td>non-negative float</td>
+<td>sets custom length for the connection <em>default:</em> <strong>-1.00</strong></td>
+</tr>
+<tr>
+<td>customShape</td>
+<td>list of unique positions</td>
+<td>sets custom shape for the connection</td>
+</tr>
+<tr>
+<td>changeLeft</td>
+<td>list of vClasses</td>
+<td>Permit changing left only for to the given vehicle classes <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>changeRight</td>
+<td>list of vClasses</td>
+<td>Permit changing right only for to the given vehicle classes <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>indirect</td>
+<td>boolean</td>
+<td>if set to true, vehicles will make a turn in 2 steps <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>set a custom edge type (for applying vClass-specific speed restrictions)</td>
+</tr>
+<tr>
+<td>dir</td>
+<td>string</td>
+<td>turning direction for this connection (computed)</td>
+</tr>
+<tr>
+<td>state</td>
+<td>string</td>
+<td>link state for this connection (computed)</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="type">type<a class="headerlink" href="#type" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of the edge</td>
+</tr>
+<tr>
+<td>numLanes</td>
+<td>non-negative integer</td>
+<td>The number of lanes of the edge <em>default:</em> <strong>1</strong></td>
+</tr>
+<tr>
+<td>speed</td>
+<td>non-negative float</td>
+<td>The maximum speed allowed on the edge in m/s <em>default:</em> <strong>13.89</strong></td>
+</tr>
+<tr>
+<td>allow</td>
+<td>list of vClasses</td>
+<td>Explicitly allows the given vehicle classes (not given will be not allowed) <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>disallow</td>
+<td>list of vClasses</td>
+<td>Explicitly disallows the given vehicle classes (not given will be allowed)</td>
+</tr>
+<tr>
+<td>spreadType</td>
+<td>discrete string</td>
+<td>The spreadType defines how to compute the lane geometry from the edge geometry (used for visualization) <em>default:</em> <strong>right</strong></td>
+</tr>
+<tr>
+<td>priority</td>
+<td>integer</td>
+<td>The priority of the edge <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td>Lane width for all lanes of this edge in meters (used for visualization) <em>default:</em> <strong>default</strong></td>
+</tr>
+<tr>
+<td>sidewalkWidth</td>
+<td>string</td>
+<td>The width of the sidewalk that should be added as an additional lane <em>default:</em> <strong>default</strong></td>
+</tr>
+<tr>
+<td>bikeLaneWidth</td>
+<td>string</td>
+<td>The width of the bike lane that should be added as an additional lane <em>default:</em> <strong>default</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lanetype">laneType<a class="headerlink" href="#lanetype" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>speed</td>
+<td>non-negative float</td>
+<td>The maximum speed allowed on the lane in m/s <em>default:</em> <strong>13.89</strong></td>
+</tr>
+<tr>
+<td>allow</td>
+<td>list of vClasses</td>
+<td>Explicitly allows the given vehicle classes (not given will be not allowed) <em>default:</em> <strong>all</strong></td>
+</tr>
+<tr>
+<td>disallow</td>
+<td>list of vClasses</td>
+<td>Explicitly disallows the given vehicle classes (not given will be allowed)</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td>Lane width for all lanes of this type in meters (used for visualization) <em>default:</em> <strong>default</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="routedistribution">routeDistribution<a class="headerlink" href="#routedistribution" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of route distribution</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vtypedistribution">vTypeDistribution<a class="headerlink" href="#vtypedistribution" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The id of VehicleType distribution</td>
+</tr>
+</tbody>
+</table>
+<h2 id="crossing">crossing<a class="headerlink" href="#crossing" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Crossing ID</td>
+</tr>
+<tr>
+<td>edges</td>
+<td>list of unique strings</td>
+<td>The (road) edges which are crossed</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>boolean</td>
+<td>Whether the pedestrians have priority over the vehicles (automatically set to true at tls-controlled intersections) <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>width</td>
+<td>non-negative float</td>
+<td>The width of the crossings <em>default:</em> <strong>4.00</strong></td>
+</tr>
+<tr>
+<td>linkIndex</td>
+<td>integer</td>
+<td>sets the tls-index for this crossing <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>linkIndex2</td>
+<td>integer</td>
+<td>sets the opposite-direction tls-index for this crossing <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>customShape</td>
+<td>list of unique positions</td>
+<td>Overrides default shape of pedestrian crossing</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="walkingarea">walkingArea<a class="headerlink" href="#walkingarea" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Walking Area ID</td>
+</tr>
+<tr>
+<td>width</td>
+<td>non-negative float</td>
+<td>The width of the WalkingArea <em>default:</em> <strong>2.00</strong></td>
+</tr>
+<tr>
+<td>length</td>
+<td>non-negative float</td>
+<td>The length of the WalkingArea in meter</td>
+</tr>
+<tr>
+<td>shape</td>
+<td>list of unique positions</td>
+<td>Overrides default shape of pedestrian sidewalk</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="person">person<a class="headerlink" href="#person" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The name of the person</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>The id of the person type to use for this person <em>default:</em> <strong>DEFAULT_VEHTYPE</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>This person's color <em>default:</em> <strong>yellow</strong></td>
+</tr>
+<tr>
+<td>departPos</td>
+<td>string</td>
+<td>The position at which the person shall enter the net <em>default:</em> <strong>base</strong></td>
+</tr>
+<tr>
+<td>depart</td>
+<td>non-negative float</td>
+<td>The time step at which the person shall enter the network <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="persontrip">personTrip<a class="headerlink" href="#persontrip" title="Permanent link">#</a></h3>
+<p>child element of <a href="#person">person</a>, <a href="#personflow">personFlow</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>Edge start ID</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>Edge end ID</td>
+</tr>
+<tr>
+<td>arrivalPos</td>
+<td>float</td>
+<td>arrival position on the destination edge <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>vTypes</td>
+<td>list of strings</td>
+<td>List of possible vehicle types to take</td>
+</tr>
+<tr>
+<td>modes</td>
+<td>list of strings</td>
+<td>List of possible traffic modes. Walking is always possible regardless of this value</td>
+</tr>
+<tr>
+<td>lines</td>
+<td>list of strings</td>
+<td>list of vehicle alternatives to take for the person trip</td>
+</tr>
+<tr>
+<td>walkFactor</td>
+<td>non-negative float</td>
+<td>Walk factor <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>group</td>
+<td>string</td>
+<td>id of the travel group. Persons with the same group may share a taxi ride</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>toTaz</td>
+<td>unique string</td>
+<td>TAZ end ID</td>
+</tr>
+<tr>
+<td>toJunction</td>
+<td>unique string</td>
+<td>Junction end ID</td>
+</tr>
+<tr>
+<td>busStop</td>
+<td>unique string</td>
+<td>BusStop end ID</td>
+</tr>
+<tr>
+<td>trainStop</td>
+<td>unique string</td>
+<td>TrainStop end ID</td>
+</tr>
+<tr>
+<td>containerStop</td>
+<td>unique string</td>
+<td>ContainerStop end ID</td>
+</tr>
+<tr>
+<td>chargingStation</td>
+<td>unique string</td>
+<td>ChargingStation end ID</td>
+</tr>
+<tr>
+<td>parkingArea</td>
+<td>unique string</td>
+<td>ParkingArea end ID</td>
+</tr>
+<tr>
+<td>fromTaz</td>
+<td>unique string</td>
+<td>TAZ start ID</td>
+</tr>
+<tr>
+<td>fromJunction</td>
+<td>unique string</td>
+<td>Junction start ID</td>
+</tr>
+<tr>
+<td>fromBusStop</td>
+<td>unique string</td>
+<td>BusStop start ID</td>
+</tr>
+<tr>
+<td>fromTrainStop</td>
+<td>unique string</td>
+<td>TrainStop start ID</td>
+</tr>
+<tr>
+<td>fromContainerStop</td>
+<td>unique string</td>
+<td>ContainerStop start ID</td>
+</tr>
+<tr>
+<td>fromChargingStation</td>
+<td>unique string</td>
+<td>ChargingStation start ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ride">ride<a class="headerlink" href="#ride" title="Permanent link">#</a></h3>
+<p>child element of <a href="#person">person</a>, <a href="#personflow">personFlow</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>Edge start ID</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>Edge end ID</td>
+</tr>
+<tr>
+<td>arrivalPos</td>
+<td>float</td>
+<td>arrival position on the destination edge <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>lines</td>
+<td>list of strings</td>
+<td>list of vehicle alternatives to take for the ride</td>
+</tr>
+<tr>
+<td>group</td>
+<td>string</td>
+<td>id of the travel group. Persons with the same group may share a taxi ride</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>toTaz</td>
+<td>unique string</td>
+<td>TAZ end ID</td>
+</tr>
+<tr>
+<td>toJunction</td>
+<td>unique string</td>
+<td>Junction end ID</td>
+</tr>
+<tr>
+<td>busStop</td>
+<td>unique string</td>
+<td>BusStop end ID</td>
+</tr>
+<tr>
+<td>trainStop</td>
+<td>unique string</td>
+<td>TrainStop end ID</td>
+</tr>
+<tr>
+<td>containerStop</td>
+<td>unique string</td>
+<td>ContainerStop end ID</td>
+</tr>
+<tr>
+<td>chargingStation</td>
+<td>unique string</td>
+<td>ChargingStation end ID</td>
+</tr>
+<tr>
+<td>parkingArea</td>
+<td>unique string</td>
+<td>ParkingArea end ID</td>
+</tr>
+<tr>
+<td>fromTaz</td>
+<td>unique string</td>
+<td>TAZ start ID</td>
+</tr>
+<tr>
+<td>fromJunction</td>
+<td>unique string</td>
+<td>Junction start ID</td>
+</tr>
+<tr>
+<td>fromBusStop</td>
+<td>unique string</td>
+<td>BusStop start ID</td>
+</tr>
+<tr>
+<td>fromTrainStop</td>
+<td>unique string</td>
+<td>TrainStop start ID</td>
+</tr>
+<tr>
+<td>fromContainerStop</td>
+<td>unique string</td>
+<td>ContainerStop start ID</td>
+</tr>
+<tr>
+<td>fromChargingStation</td>
+<td>unique string</td>
+<td>ChargingStation start ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="walk">walk<a class="headerlink" href="#walk" title="Permanent link">#</a></h3>
+<p>child element of <a href="#person">person</a>, <a href="#personflow">personFlow</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>Edge start ID</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>Edge end ID</td>
+</tr>
+<tr>
+<td>arrivalPos</td>
+<td>float</td>
+<td>arrival position on the destination edge <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>speed</td>
+<td>non-negative float</td>
+<td>speed of the person for this tranship in m/s (not together with duration) <em>default:</em> <strong>1.39</strong></td>
+</tr>
+<tr>
+<td>duration</td>
+<td>non-negative SUMOTime</td>
+<td>duration of the plan in second (not together with speed) <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>toTaz</td>
+<td>unique string</td>
+<td>TAZ end ID</td>
+</tr>
+<tr>
+<td>toJunction</td>
+<td>unique string</td>
+<td>Junction end ID</td>
+</tr>
+<tr>
+<td>busStop</td>
+<td>unique string</td>
+<td>BusStop end ID</td>
+</tr>
+<tr>
+<td>trainStop</td>
+<td>unique string</td>
+<td>TrainStop end ID</td>
+</tr>
+<tr>
+<td>containerStop</td>
+<td>unique string</td>
+<td>ContainerStop end ID</td>
+</tr>
+<tr>
+<td>chargingStation</td>
+<td>unique string</td>
+<td>ChargingStation end ID</td>
+</tr>
+<tr>
+<td>parkingArea</td>
+<td>unique string</td>
+<td>ParkingArea end ID</td>
+</tr>
+<tr>
+<td>fromTaz</td>
+<td>unique string</td>
+<td>TAZ start ID</td>
+</tr>
+<tr>
+<td>fromJunction</td>
+<td>unique string</td>
+<td>Junction start ID</td>
+</tr>
+<tr>
+<td>fromBusStop</td>
+<td>unique string</td>
+<td>BusStop start ID</td>
+</tr>
+<tr>
+<td>fromTrainStop</td>
+<td>unique string</td>
+<td>TrainStop start ID</td>
+</tr>
+<tr>
+<td>fromContainerStop</td>
+<td>unique string</td>
+<td>ContainerStop start ID</td>
+</tr>
+<tr>
+<td>fromChargingStation</td>
+<td>unique string</td>
+<td>ChargingStation start ID</td>
+</tr>
+<tr>
+<td>edges</td>
+<td>list of unique strings</td>
+<td>list of consecutive edges</td>
+</tr>
+<tr>
+<td>route</td>
+<td>list of unique strings</td>
+<td>Route ID</td>
+</tr>
+</tbody>
+</table>
+<h2 id="personflow">personFlow<a class="headerlink" href="#personflow" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The name of the person</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>The id of the person type to use for this person <em>default:</em> <strong>DEFAULT_VEHTYPE</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>This person's color <em>default:</em> <strong>yellow</strong></td>
+</tr>
+<tr>
+<td>departPos</td>
+<td>string</td>
+<td>The position at which the person shall enter the net <em>default:</em> <strong>base</strong></td>
+</tr>
+<tr>
+<td>begin</td>
+<td>SUMOTime</td>
+<td>First flow departure time <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>terminate</td>
+<td>discrete string</td>
+<td>Criterion for flow termination <em>default:</em> <strong>end</strong></td>
+</tr>
+<tr>
+<td>spacing</td>
+<td>discrete string</td>
+<td>Criterion for flow spacing <em>default:</em> <strong>personsPerHour</strong></td>
+</tr>
+<tr>
+<td>end</td>
+<td>SUMOTime</td>
+<td>End of departure interval <em>default:</em> <strong>3600</strong></td>
+</tr>
+<tr>
+<td>number</td>
+<td>non-negative integer</td>
+<td>probability for emitting a flow each second (not together with vehsPerHour or period) <em>default:</em> <strong>1800</strong></td>
+</tr>
+<tr>
+<td>personsPerHour</td>
+<td>string</td>
+<td>Number of flows per hour, equally spaced (not together with period or probability or poisson) <em>default:</em> <strong>1800</strong></td>
+</tr>
+<tr>
+<td>period</td>
+<td>string</td>
+<td>Insert equally spaced flows at that period (not together with vehsPerHour or probability or poisson) <em>default:</em> <strong>2</strong></td>
+</tr>
+<tr>
+<td>probability</td>
+<td>string</td>
+<td>probability for emitting a flow each second (not together with vehsPerHour or period or poisson) <em>default:</em> <strong>0.5</strong></td>
+</tr>
+<tr>
+<td>poisson</td>
+<td>string</td>
+<td>Insert flow expected vehicles per second with poisson distributed insertion rate (not together with period or vehsPerHour or probability) <em>default:</em> <strong>0.5</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dataset">dataSet<a class="headerlink" href="#dataset" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Data set ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datainterval">dataInterval<a class="headerlink" href="#datainterval" title="Permanent link">#</a></h3>
+<p>child element of <a href="#dataset">dataSet</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>Interval ID</td>
+</tr>
+<tr>
+<td>begin</td>
+<td>SUMOTime</td>
+<td>Data interval begin time <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>end</td>
+<td>SUMOTime</td>
+<td>Data interval end time <em>default:</em> <strong>3600</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="container">container<a class="headerlink" href="#container" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The name of the container</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>The id of the container type to use for this container <em>default:</em> <strong>DEFAULT_CONTAINERTYPE</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>This container's color <em>default:</em> <strong>yellow</strong></td>
+</tr>
+<tr>
+<td>departPos</td>
+<td>string</td>
+<td>The position at which the container shall enter the net <em>default:</em> <strong>base</strong></td>
+</tr>
+<tr>
+<td>depart</td>
+<td>non-negative float</td>
+<td>The time step at which the container shall enter the network <em>default:</em> <strong>0.00</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transport">transport<a class="headerlink" href="#transport" title="Permanent link">#</a></h3>
+<p>child element of <a href="#container">container</a>, <a href="#containerflow">containerFlow</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>Edge start ID</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>Edge end ID</td>
+</tr>
+<tr>
+<td>arrivalPos</td>
+<td>float</td>
+<td>arrival position on the destination edge <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>lines</td>
+<td>list of strings</td>
+<td>list of vehicle alternatives to take for the transport</td>
+</tr>
+<tr>
+<td>group</td>
+<td>string</td>
+<td>id of the travel group. Persons with the same group may share a taxi ride</td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>toTaz</td>
+<td>unique string</td>
+<td>TAZ end ID</td>
+</tr>
+<tr>
+<td>toJunction</td>
+<td>unique string</td>
+<td>Junction end ID</td>
+</tr>
+<tr>
+<td>busStop</td>
+<td>unique string</td>
+<td>BusStop end ID</td>
+</tr>
+<tr>
+<td>trainStop</td>
+<td>unique string</td>
+<td>TrainStop end ID</td>
+</tr>
+<tr>
+<td>containerStop</td>
+<td>unique string</td>
+<td>ContainerStop end ID</td>
+</tr>
+<tr>
+<td>chargingStation</td>
+<td>unique string</td>
+<td>ChargingStation end ID</td>
+</tr>
+<tr>
+<td>parkingArea</td>
+<td>unique string</td>
+<td>ParkingArea end ID</td>
+</tr>
+<tr>
+<td>fromTaz</td>
+<td>unique string</td>
+<td>TAZ start ID</td>
+</tr>
+<tr>
+<td>fromJunction</td>
+<td>unique string</td>
+<td>Junction start ID</td>
+</tr>
+<tr>
+<td>fromBusStop</td>
+<td>unique string</td>
+<td>BusStop start ID</td>
+</tr>
+<tr>
+<td>fromTrainStop</td>
+<td>unique string</td>
+<td>TrainStop start ID</td>
+</tr>
+<tr>
+<td>fromContainerStop</td>
+<td>unique string</td>
+<td>ContainerStop start ID</td>
+</tr>
+<tr>
+<td>fromChargingStation</td>
+<td>unique string</td>
+<td>ChargingStation start ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tranship">tranship<a class="headerlink" href="#tranship" title="Permanent link">#</a></h3>
+<p>child element of <a href="#container">container</a>, <a href="#containerflow">containerFlow</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>unique string</td>
+<td>Edge start ID</td>
+</tr>
+<tr>
+<td>to</td>
+<td>unique string</td>
+<td>Edge end ID</td>
+</tr>
+<tr>
+<td>departPos</td>
+<td>non-negative float</td>
+<td>The position at which the tranship shall enter the net <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>arrivalPos</td>
+<td>float</td>
+<td>arrival position on the destination edge <em>default:</em> <strong>-1</strong></td>
+</tr>
+<tr>
+<td>speed</td>
+<td>non-negative float</td>
+<td>speed of the person for this tranship in m/s (not together with duration) <em>default:</em> <strong>1.39</strong></td>
+</tr>
+<tr>
+<td>duration</td>
+<td>non-negative SUMOTime</td>
+<td>duration of the plan in second (not together with speed) <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+<tr>
+<td>toTaz</td>
+<td>unique string</td>
+<td>TAZ end ID</td>
+</tr>
+<tr>
+<td>toJunction</td>
+<td>unique string</td>
+<td>Junction end ID</td>
+</tr>
+<tr>
+<td>busStop</td>
+<td>unique string</td>
+<td>BusStop end ID</td>
+</tr>
+<tr>
+<td>trainStop</td>
+<td>unique string</td>
+<td>TrainStop end ID</td>
+</tr>
+<tr>
+<td>containerStop</td>
+<td>unique string</td>
+<td>ContainerStop end ID</td>
+</tr>
+<tr>
+<td>chargingStation</td>
+<td>unique string</td>
+<td>ChargingStation end ID</td>
+</tr>
+<tr>
+<td>parkingArea</td>
+<td>unique string</td>
+<td>ParkingArea end ID</td>
+</tr>
+<tr>
+<td>fromTaz</td>
+<td>unique string</td>
+<td>TAZ start ID</td>
+</tr>
+<tr>
+<td>fromJunction</td>
+<td>unique string</td>
+<td>Junction start ID</td>
+</tr>
+<tr>
+<td>fromBusStop</td>
+<td>unique string</td>
+<td>BusStop start ID</td>
+</tr>
+<tr>
+<td>fromTrainStop</td>
+<td>unique string</td>
+<td>TrainStop start ID</td>
+</tr>
+<tr>
+<td>fromContainerStop</td>
+<td>unique string</td>
+<td>ContainerStop start ID</td>
+</tr>
+<tr>
+<td>fromChargingStation</td>
+<td>unique string</td>
+<td>ChargingStation start ID</td>
+</tr>
+<tr>
+<td>edges</td>
+<td>list of unique strings</td>
+<td>list of consecutive edges</td>
+</tr>
+</tbody>
+</table>
+<h2 id="containerflow">containerFlow<a class="headerlink" href="#containerflow" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique string</td>
+<td>The name of the container</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>The id of the container type to use for this container <em>default:</em> <strong>DEFAULT_CONTAINERTYPE</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>color</td>
+<td>This container's color <em>default:</em> <strong>yellow</strong></td>
+</tr>
+<tr>
+<td>departPos</td>
+<td>string</td>
+<td>The position at which the container shall enter the net <em>default:</em> <strong>base</strong></td>
+</tr>
+<tr>
+<td>begin</td>
+<td>SUMOTime</td>
+<td>First flow departure time <em>default:</em> <strong>0</strong></td>
+</tr>
+<tr>
+<td>terminate</td>
+<td>discrete string</td>
+<td>Criterion for flow termination <em>default:</em> <strong>end</strong></td>
+</tr>
+<tr>
+<td>spacing</td>
+<td>discrete string</td>
+<td>Criterion for flow spacing <em>default:</em> <strong>containersPerHour</strong></td>
+</tr>
+<tr>
+<td>end</td>
+<td>SUMOTime</td>
+<td>End of departure interval <em>default:</em> <strong>3600</strong></td>
+</tr>
+<tr>
+<td>number</td>
+<td>non-negative integer</td>
+<td>probability for emitting a flow each second (not together with vehsPerHour or period) <em>default:</em> <strong>1800</strong></td>
+</tr>
+<tr>
+<td>containersPerHour</td>
+<td>string</td>
+<td>Number of flows per hour, equally spaced (not together with period or probability or poisson) <em>default:</em> <strong>1800</strong></td>
+</tr>
+<tr>
+<td>period</td>
+<td>string</td>
+<td>Insert equally spaced flows at that period (not together with vehsPerHour or probability or poisson) <em>default:</em> <strong>2</strong></td>
+</tr>
+<tr>
+<td>probability</td>
+<td>string</td>
+<td>probability for emitting a flow each second (not together with vehsPerHour or period or poisson) <em>default:</em> <strong>0.5</strong></td>
+</tr>
+<tr>
+<td>poisson</td>
+<td>string</td>
+<td>Insert flow expected vehicles per second with poisson distributed insertion rate (not together with period or vehsPerHour or probability) <em>default:</em> <strong>0.5</strong></td>
+</tr>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+<h2 id="internallane">internalLane<a class="headerlink" href="#internallane" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>frontElement</td>
+<td>boolean</td>
+<td>Toggle front element</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>boolean</td>
+<td>Toggle select element</td>
+</tr>
+</tbody>
+</table>
+                </div>
+          </div>
+          <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+        </div>
+
+        <footer class="col-md-12">
+          
+            <br><small><i>This page was last edited on: 03 February 2025</i></small>
+          
+          <hr>
+            <p>Copyright &copy; 2001-2024 German Aerospace Center (DLR) and others.</p>
+          <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa-brands fa-x-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa-brands fa-facebook"></i></a> <a class="no-arrow-link" href="https://www.instagram.com/eclipse.sumo/"><i class="fa-brands fa-instagram"></i></a>
+          | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a></p>
+        </footer>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body" style="color: #495057 !important;">
+                <p>Enter your search terms:</p>
+                <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+
+        var base_url = "..",
+            shortcuts = {"edit": 69, "help": 191, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <script>
+          const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+
+          function switchTheme(e) {
+              if (e.target.checked) {
+                  localStorage.setItem('sumo-docs-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  toggleSwitch.checked = true;
+              } else {
+                  localStorage.setItem('sumo-docs-theme', 'light');
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  toggleSwitch.checked = false;
+              }
+          }
+
+          toggleSwitch.addEventListener('change', switchTheme, false);
+
+          if (document.documentElement.getAttribute("data-theme") == "dark"){
+              toggleSwitch.checked = true;
+          }
+          </script>
+
+      <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody style="color: #495057 !important;">
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help dialog</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search the Documentation</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit current page on GitHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>
