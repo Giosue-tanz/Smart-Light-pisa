@@ -1,0 +1,136 @@
+MAPPATURA COMPLETA SEMAFORI - PISA
+Totale programmi semaforici (IDs): 23
+======================================================================
+
+ID PROGRAMMA: 187390194
+VIE COINVOLTE:
+  - Via Piave
+  - Via Piero Gobetti
+  - Via Ugo Rindi
+----------------------------------------
+ID PROGRAMMA: 213375181
+VIE COINVOLTE:
+  - Via Giacomo Puccini
+  - Via dei Condotti
+----------------------------------------
+ID PROGRAMMA: 245927308
+VIE COINVOLTE:
+  - Via Giuseppe Montanelli
+  - Via Sant&apos;Agostino
+----------------------------------------
+ID PROGRAMMA: 251208763
+VIE COINVOLTE:
+  - Via Giuseppe Garibaldi
+----------------------------------------
+ID PROGRAMMA: 259969376
+VIE COINVOLTE:
+  - Via Cisanello
+----------------------------------------
+ID PROGRAMMA: 278246118
+VIE COINVOLTE:
+  - Lungarno Gambacorti
+  - Ponte Solferino
+  - Via Francesco Crispi
+----------------------------------------
+ID PROGRAMMA: 31770821
+VIE COINVOLTE:
+  - Via Francesco Galdi
+  - Via San Giovanni Bosco
+  - Via Spartaco Carlini
+----------------------------------------
+ID PROGRAMMA: 33681447
+VIE COINVOLTE:
+  - Lungarno Antonio Pacinotti
+  - Lungarno Ranieri Simonelli
+  - Piazza Solferino
+  - Ponte Solferino
+----------------------------------------
+ID PROGRAMMA: 33715717
+VIE COINVOLTE:
+  - Via Enrico Fermi
+  - Via Nicola Pisano
+  - Via Rustichello da Pisa
+----------------------------------------
+ID PROGRAMMA: 3680774442
+VIE COINVOLTE:
+  - Via Bonanno Pisano
+  - Via Carlo Francesco Gabba
+  - Via Risorgimento
+----------------------------------------
+ID PROGRAMMA: 38037854
+VIE COINVOLTE:
+  - Via Contessa Matilde
+  - Via Piave
+----------------------------------------
+ID PROGRAMMA: 5253760930
+VIE COINVOLTE:
+  - Via Del Buschetto
+  - Via Santa Bibbiana
+----------------------------------------
+ID PROGRAMMA: 704411639
+VIE COINVOLTE:
+  - Via Carlo Matteucci
+  - Via Giacomo Matteotti
+  - Via San Michele degli Scalzi
+----------------------------------------
+ID PROGRAMMA: cluster_10655267109_10655267110_33715701
+VIE COINVOLTE:
+  - Via Bonanno Pisano
+  - Via Pietro da Pisa
+  - Via Turino Vanni
+----------------------------------------
+ID PROGRAMMA: cluster_12358102210_12358102217_12358102223_2674835073_#1more
+VIE COINVOLTE:
+  - Lungarno Giacomo Leopardi
+  - Piazza di Terzanaia
+  - Via Bonanno Pisano
+----------------------------------------
+ID PROGRAMMA: cluster_2474030085_2474030088
+VIE COINVOLTE:
+  - Via Fiorentina
+  - Via Paolo Tronci
+----------------------------------------
+ID PROGRAMMA: cluster_256245975_31770756
+VIE COINVOLTE:
+  - Via Gino Luzzato
+  - Via Manara Valgimigli
+  - Via Pietro Nenni
+----------------------------------------
+ID PROGRAMMA: cluster_292067252_610987317
+VIE COINVOLTE:
+  - Via Pietrasantina
+  - Via delle Fiamme Gialle
+----------------------------------------
+ID PROGRAMMA: cluster_31770755_3444351897
+VIE COINVOLTE:
+  - Via Cisanello
+  - Via Pietro Nenni
+----------------------------------------
+ID PROGRAMMA: cluster_8254824560_8443645582_8443645594_8443645595
+VIE COINVOLTE:
+  - Lungarno Giacomo Leopardi
+  - Ponte dell&apos;Impero
+  - Via Aurelia Nord
+  - Via Ippica
+----------------------------------------
+ID PROGRAMMA: joinedS_1386672976_1386672980_31770712_3178033659
+VIE COINVOLTE:
+  - Piazza Caduti di Cefalonia div. Acqui
+  - Piazza Caduti di Cefalonia divisione Acqui
+  - Rotatoria Vigili del Fuoco caduti in servizio
+  - Via Giacomo Matteotti
+  - Viale delle Piagge
+----------------------------------------
+ID PROGRAMMA: joinedS_213114083_38037891
+VIE COINVOLTE:
+  - Largo del Parlascio
+  - Via Contessa Matilde
+  - Via Luigi Bianchi
+  - Via del Brennero
+----------------------------------------
+ID PROGRAMMA: joinedS_2700665511_cluster_269027883_709216891
+VIE COINVOLTE:
+  - Via Alessandro Volpi
+  - Via Giuseppe Averani
+  - Via di Pratale
+----------------------------------------

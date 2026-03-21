@@ -1,0 +1,8 @@
+BENCHMARK RISULTATI
+===================
+Fixed Timer Reward: -54.95
+DQN Reward: -51.89
+PPO Reward: -49.71
+
+CONFRONTO
+Vincitore: PPO (+2.18)

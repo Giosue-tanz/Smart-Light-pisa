@@ -9,6 +9,9 @@ import random
 import time
 import traci
 import sumolib
+# Aggiungi 1_simulation al path per importare il traffic generator
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, '1_simulation'))
 from smartlight_traffic_gen import PisaTrafficGenerator
 
 # ==============================
@@ -16,9 +19,9 @@ from smartlight_traffic_gen import PisaTrafficGenerator
 # ==============================
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 SUMO_BINARY = "sumo-gui" # Usa gui per vedere, "sumo" per velocità
-BASE_PATH = os.path.dirname(os.path.abspath(__file__))
-SUMO_CONFIG = os.path.join(BASE_PATH, "sumo_config", "pisa.sumocfg")
-NET_FILE = os.path.join(BASE_PATH, "sumo_config", "pisa.net.xml")
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SUMO_CONFIG = os.path.join(BASE_PATH, "1_simulation", "sumo_config", "pisa.sumocfg")
+NET_FILE = os.path.join(BASE_PATH, "1_simulation", "sumo_config", "pisa.net.xml")
 
 MIN_GREEN, MAX_GREEN = 10, 40
 ACTION_SIZE = 31

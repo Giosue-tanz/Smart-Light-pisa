@@ -1,0 +1,194 @@
+MAPPATURA COMPLETA SEMAFORI - PISA
+Totale semafori individuati: 28
+======================================================================
+
+ID SEMAFORO: 1386672976
+COORDINATE: (5380.49, 2258.67)
+VIE COINVOLTE:
+  - Piazza Caduti di Cefalonia divisione Acqui
+  - Rotatoria Vigili del Fuoco caduti in servizio
+----------------------------------------
+ID SEMAFORO: 1386672980
+COORDINATE: (5383.2, 2274.98)
+VIE COINVOLTE:
+  - Piazza Caduti di Cefalonia div. Acqui
+  - Piazza Caduti di Cefalonia divisione Acqui
+----------------------------------------
+ID SEMAFORO: 187390194
+COORDINATE: (4394.3, 4117.22)
+VIE COINVOLTE:
+  - Via Piave
+  - Via Piero Gobetti
+  - Via Ugo Rindi
+----------------------------------------
+ID SEMAFORO: 213114083
+COORDINATE: (4685.82, 3650.63)
+VIE COINVOLTE:
+  - Largo del Parlascio
+----------------------------------------
+ID SEMAFORO: 213375181
+COORDINATE: (7518.2, 4537.18)
+VIE COINVOLTE:
+  - Via Giacomo Puccini
+  - Via dei Condotti
+----------------------------------------
+ID SEMAFORO: 245927308
+COORDINATE: (4547.17, 1736.21)
+VIE COINVOLTE:
+  - Via Giuseppe Montanelli
+  - Via Sant&apos;Agostino
+----------------------------------------
+ID SEMAFORO: 251208763
+COORDINATE: (5913.91, 3096.92)
+VIE COINVOLTE:
+  - Via Francesco Galdi
+  - Via Giuseppe Garibaldi
+----------------------------------------
+ID SEMAFORO: 259969376
+COORDINATE: (6995.46, 2139.44)
+VIE COINVOLTE:
+  - Via Cisanello
+  - Via Venezia Giulia
+----------------------------------------
+ID SEMAFORO: 2700665511
+COORDINATE: (6290.07, 3450.49)
+VIE COINVOLTE:
+  - Via Alessandro Volpi
+----------------------------------------
+ID SEMAFORO: 278246118
+COORDINATE: (4215.69, 2773.02)
+VIE COINVOLTE:
+  - Lungarno Gambacorti
+  - Lungarno Sidney Sonnino
+  - Ponte Solferino
+  - Via Francesco Crispi
+----------------------------------------
+ID SEMAFORO: 31770712
+COORDINATE: (5410.6, 2270.64)
+VIE COINVOLTE:
+  - Piazza Caduti di Cefalonia divisione Acqui
+  - Rotatoria Vigili del Fuoco caduti in servizio
+  - Via Giacomo Matteotti
+----------------------------------------
+ID SEMAFORO: 31770821
+COORDINATE: (5868.98, 3305.37)
+VIE COINVOLTE:
+  - Via Francesco Galdi
+  - Via San Giovanni Bosco
+  - Via Spartaco Carlini
+----------------------------------------
+ID SEMAFORO: 3178033659
+COORDINATE: (5389.44, 2249.64)
+VIE COINVOLTE:
+  - Rotatoria Vigili del Fuoco caduti in servizio
+  - Viale delle Piagge
+----------------------------------------
+ID SEMAFORO: 33681447
+COORDINATE: (4155.29, 2869.7)
+VIE COINVOLTE:
+  - Lungarno Antonio Pacinotti
+  - Lungarno Ranieri Simonelli
+  - Piazza Solferino
+  - Ponte Solferino
+----------------------------------------
+ID SEMAFORO: 33715717
+COORDINATE: (3884.79, 3022.69)
+VIE COINVOLTE:
+  - Via Enrico Fermi
+  - Via Nicola Pisano
+  - Via Rustichello da Pisa
+----------------------------------------
+ID SEMAFORO: 3680774442
+COORDINATE: (3745.8, 3237.13)
+VIE COINVOLTE:
+  - Via Bonanno Pisano
+  - Via Carlo Francesco Gabba
+  - Via Risorgimento
+----------------------------------------
+ID SEMAFORO: 38037854
+COORDINATE: (4321.01, 3805.78)
+VIE COINVOLTE:
+  - Via Contessa Matilde
+  - Via Piave
+----------------------------------------
+ID SEMAFORO: 38037891
+COORDINATE: (4688.33, 3682.23)
+VIE COINVOLTE:
+  - Largo del Parlascio
+  - Via Contessa Matilde
+  - Via Luigi Bianchi
+  - Via del Brennero
+----------------------------------------
+ID SEMAFORO: 5253760930
+COORDINATE: (5133.15, 2879.45)
+VIE COINVOLTE:
+  - Via Del Buschetto
+  - Via Livia Gereschi
+  - Via Santa Bibbiana
+----------------------------------------
+ID SEMAFORO: 704411639
+COORDINATE: (5734.46, 2302.02)
+VIE COINVOLTE:
+  - Via Carlo Matteucci
+  - Via Giacomo Matteotti
+  - Via San Michele degli Scalzi
+----------------------------------------
+ID SEMAFORO: cluster_10655267109_10655267110_33715701
+COORDINATE: (3709.3, 3146.52)
+VIE COINVOLTE:
+  - Via Bonanno Pisano
+  - Via Pietro da Pisa
+  - Via Rustichello da Pisa
+  - Via Turino Vanni
+----------------------------------------
+ID SEMAFORO: cluster_12358102210_12358102217_12358102223_2674835073_#1more
+COORDINATE: (3665.94, 2617.74)
+VIE COINVOLTE:
+  - Lungarno Giacomo Leopardi
+  - Piazza di Terzanaia
+  - Via Bonanno Pisano
+----------------------------------------
+ID SEMAFORO: cluster_2474030085_2474030088
+COORDINATE: (5246.6, 1866.63)
+VIE COINVOLTE:
+  - Via Carlo Cattaneo
+  - Via Emilia
+  - Via Fiorentina
+  - Via Paolo Tronci
+----------------------------------------
+ID SEMAFORO: cluster_256245975_31770756
+COORDINATE: (6295.92, 2836.42)
+VIE COINVOLTE:
+  - Via Gino Luzzato
+  - Via Manara Valgimigli
+  - Via Pietro Nenni
+----------------------------------------
+ID SEMAFORO: cluster_269027883_709216891
+COORDINATE: (6251.23, 3488.84)
+VIE COINVOLTE:
+  - Via Giuseppe Averani
+  - Via Giuseppe Parini
+  - Via di Pratale
+----------------------------------------
+ID SEMAFORO: cluster_292067252_610987317
+COORDINATE: (3609.92, 4351.0)
+VIE COINVOLTE:
+  - Via Livenza
+  - Via Pietrasantina
+  - Via delle Fiamme Gialle
+----------------------------------------
+ID SEMAFORO: cluster_31770755_3444351897
+COORDINATE: (6248.8, 2532.17)
+VIE COINVOLTE:
+  - Via Cisanello
+  - Via Pietro Nenni
+----------------------------------------
+ID SEMAFORO: cluster_8254824560_8443645582_8443645594_8443645595
+COORDINATE: (3304.26, 2430.34)
+VIE COINVOLTE:
+  - Lungarno Giacomo Leopardi
+  - Ponte dell&apos;Impero
+  - Via Aurelia
+  - Via Aurelia Nord
+  - Via Ippica
+----------------------------------------

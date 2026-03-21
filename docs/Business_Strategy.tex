@@ -1,0 +1,464 @@
+\documentclass[a4paper,11pt]{article}
+
+% --- PREAMBLE ---
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{textcomp}
+\usepackage{eurosym}
+
+% Sans Serif
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{enumitem}
+\setlist[itemize]{label=--}
+
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+
+% --- PACCHETTI GRAFICA ---
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{amsmath}
+
+% Colori
+\definecolor{SmartBlue}{RGB}{0, 70, 140}
+\definecolor{SmartGreen}{RGB}{0, 120, 50}
+\definecolor{SmartRed}{RGB}{180, 20, 20}
+\definecolor{SmartLight}{RGB}{235, 242, 252}
+
+% Hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=SmartBlue,
+    urlcolor=SmartBlue,
+    pdftitle={Strategia Business e Proiezioni 5 Anni - SmartLight},
+    pdfauthor={Team SmartLight Pisa}
+}
+
+% Comandi
+\newcommand{\pro}[1]{\textcolor{SmartGreen}{\textbf{[+] PRO:} #1}}
+\newcommand{\contro}[1]{\textcolor{SmartRed}{\textbf{[-] CONTRO:} #1}}
+
+% Stile sezioni
+\titleformat{\section}
+  {\color{SmartBlue}\Large\bfseries}
+  {\thesection}{1em}{}[\titlerule]
+
+\titleformat{\subsection}
+  {\color{SmartBlue}\large\bfseries}
+  {\thesubsection}{1em}{}
+
+% --- DOCUMENTO ---
+\begin{document}
+
+% --- TITOLO ---
+\begin{center}
+    \vspace*{1cm}
+    {\Huge \bfseries \color{SmartBlue}
+        Strategia di Business, Modelli di Revenue \\
+        e Proiezioni Finanziarie 2026--2030} \\[0.5cm]
+    {\Large \textbf{SmartLight Pisa}} \\[0.2cm]
+    {\large \textit{Team SmartLight Pisa}} \\[0.2cm]
+    {\small Versione 2.2 --- Marzo 2026}
+    \vspace*{0.8cm}
+\end{center}
+
+\tableofcontents
+\newpage
+
+% ==============================================================
+\section*{Obiettivo del Documento}
+% ==============================================================
+Questo documento analizza i modelli di business per \textbf{SmartLight Pisa},
+definisce la struttura dei costi reali per singolo incrocio (CapEx e OpEx),
+il pricing SaaS differenziato per tipologia di città, e presenta proiezioni
+finanziarie conservative su un orizzonte di 5 anni (2026--2030).
+
+% ==============================================================
+\section{Stato Attuale del Progetto (Marzo 2026)}
+% ==============================================================
+
+\begin{tcolorbox}[
+    enhanced, colback=SmartLight, colframe=SmartBlue,
+    title=\textbf{Milestone Completate e In Corso}, boxrule=0.5mm
+]
+\begin{itemize}[nosep, topsep=4pt]
+    \item \textbf{Set 2025 --- Vincita Bando Concorso Idee:} Primo riconoscimento istituzionale. Concept validato.
+    \item \textbf{Ott 2025 -- Feb 2026 --- Evoluzione AI:} Sviluppo algoritmi PPO e Dueling Double DQN. Integrazione con SUMO su topologia reale di Pisa. Training $\approx$125\,FPS su GTX 1650.
+    \item \textbf{H1 2026 (In corso) --- Fase 3.5 SUMO:} Bridge da simulazione matematica a fisica realistica. Validazione agente su incroci a 4 vie con fasi semaforiche reali, pedoni e veicoli d'emergenza.
+    \item \textbf{H2 2026 (Pianificato) --- Pilota Reale:} Deploy su 2 incroci fisici. Dashboard PA. Validazione hardware in campo.
+\end{itemize}
+\end{tcolorbox}
+
+\vspace{0.3cm}
+Il progetto è attualmente in fase \textbf{pre-revenue}. Il focus operativo è la
+validazione tecnica necessaria a costruire la prova di valore per avviare
+le prime trattative commerciali con la Pubblica Amministrazione.
+
+% ==============================================================
+\section{Panoramica dei Modelli di Business}
+% ==============================================================
+
+Per una startup DeepTech nel settore Smart City B2G sono stati valutati quattro approcci:
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=1em]
+
+    \item \textbf{Modello Tradizionale (CapEx + Maintenance)}
+    \begin{itemize}[label=, leftmargin=1em, nosep]
+        \item \textit{Descrizione:} Vendita hardware/software ``chiavi in mano'' + canone manutenzione annuo (10--15\%).
+        \item \pro{Incasso immediato (Cash Flow).}
+        \item \contro{Ogni vendita richiede gare d'appalto complesse; scarsa ricorrenza; nessun lock-in.}
+    \end{itemize}
+
+    \item \textbf{Pure SaaS / TaaS (Traffic as a Service)}
+    \begin{itemize}[label=, leftmargin=1em, nosep]
+        \item \textit{Descrizione:} Hardware in comodato; il Comune paga abbonamento mensile per intelligenza e dashboard.
+        \item \pro{Alta valutazione aziendale (ARR); flusso costante e prevedibile.}
+        \item \contro{Difficile contrattualizzazione per PA italiane; elevato fabbisogno di capitale iniziale.}
+    \end{itemize}
+
+    \item \textbf{Performance-Based (Risk Sharing)}
+    \begin{itemize}[label=, leftmargin=1em, nosep]
+        \item \textit{Descrizione:} Divisione dei risparmi generati (carburante, CO$_2$, tempo).
+        \item \pro{Argomentazione di vendita fortissima per la PA.}
+        \item \contro{Rischio elevatissimo; complessità legale nella certificazione del risparmio.}
+    \end{itemize}
+
+    \item \textbf{Licensing / OEM}
+    \begin{itemize}[label=, leftmargin=1em, nosep]
+        \item \textit{Descrizione:} Vendita dell'algoritmo ``SmartLight Brain'' a grandi player (es.\ Swarco, La Semaforica).
+        \item \pro{Scalabilità immediata; zero gestione hardware.}
+        \item \contro{Margini ridotti; perdita del brand e del cliente finale.}
+    \end{itemize}
+
+\end{enumerate}
+
+% ==============================================================
+\section{La Strategia Vincente: ``Hardware-Enabled SaaS''}
+% ==============================================================
+
+\subsection*{Approccio ``Land \& Expand'' (Il Cavallo di Troia)}
+
+La strategia adottata è un modello ibrido che abbatte la percezione del rischio
+da parte della PA e aggira le complessità burocratiche delle gare d'appalto
+nella fase iniziale. Il principio fondamentale è la \textbf{separazione netta}
+tra il costo di ingresso (una tantum, Fase 1) e il canone ricorrente (Fase 2):
+il primo copre l'hardware, il secondo genera margine.
+
+\begin{tcolorbox}[
+    enhanced, colback=blue!5!white, colframe=SmartBlue,
+    title=\textbf{La Strategia in 3 Fasi},
+    fonttitle=\bfseries\large, boxrule=0.5mm, drop shadow
+]
+
+\textbf{\large Fase 1 --- Ingresso ``Shadow Mode'' (Audit \& Monitor)} \\
+\textit{Obiettivo: installare l'hardware e validare il valore senza gare d'appalto complesse.}
+\begin{itemize}[leftmargin=*, nosep, topsep=5pt]
+    \item \textbf{Cosa si vende:} Servizio di audit e monitoraggio del traffico.
+    \item \textbf{Prezzo:} Fee una tantum sotto la soglia di affidamento diretto (\texteuro{}5.000--8.000), che \textbf{copre integralmente il CapEx hardware}.
+    \item \textbf{Tecnologia:} Kit SmartLight in modalità \textit{shadow}: il sistema non controlla il semaforo, osserva, conta e simula cosa avrebbe fatto l'IA.
+    \item \textbf{Value Proposition:} ``Con una spesa minima scoprite quanto CO$_2$ e ore state sprecando ogni giorno --- e quanto risparmiereste.''
+\end{itemize}
+\vspace{0.3cm}\hrule\vspace{0.3cm}
+
+\textbf{\large Fase 2 --- Attivazione e Controllo (SaaS Ricorrente)} \\
+\textit{Obiettivo: convertire il cliente ``passivo'' in un contratto mensile puro margine.}
+\begin{itemize}[leftmargin=*, nosep, topsep=5pt]
+    \item \textbf{Trigger:} Report Fase 1 (es.\ ``Avete sprecato 400\,h di coda --- l'IA ne avrebbe risparmiate 150'').
+    \item \textbf{Cosa si vende:} Controllo attivo (interfaccia API semaforica) + dashboard + manutenzione remota inclusa.
+    \item \textbf{Vantaggio:} Nessun nuovo hardware --- si ``accende'' l'intelligenza sull'hardware già installato e già pagato nella Fase 1.
+    \item \textbf{Margine:} Il canone SaaS copre solo l'OpEx; il CapEx è già recuperato.
+\end{itemize}
+\vspace{0.3cm}\hrule\vspace{0.3cm}
+
+\textbf{\large Fase 3 --- Ecosistema di Rete (Data Monetization)} \\
+\textit{Obiettivo: creare valore oltre il controllo semaforico.}
+\begin{itemize}[leftmargin=*, nosep, topsep=5pt]
+    \item \textbf{Soglia:} Con 50+ incroci attivi si possiede la rete di sensori urbani più densa della città.
+    \item \textbf{Nuovi flussi:} Dati aggregati e anonimizzati (GDPR) ceduti a logistica, retail, app navigazione, urbanistica predittiva. Esclusivo del Piano B.
+    \item \textbf{Edge-first:} Nessun dato identificativo lascia l'infrastruttura locale.
+\end{itemize}
+
+\end{tcolorbox}
+
+% ==============================================================
+\section{Analisi dei Costi per Incrocio}
+% ==============================================================
+
+\subsection{Costo di Setup (CapEx --- Una Tantum per Incrocio)}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{>{\bfseries}l l r}
+\toprule
+Categoria & Dettaglio & Costo \\
+\midrule
+Hardware AI    & NVIDIA Jetson Orin (edge computing)           & \texteuro{}800 \\
+Visione        & 2$\times$ Telecamere IP 4K H.265               & \texteuro{}600 \\
+Connettività   & Router LTE industriale                         & \texteuro{}400 \\
+Protezione     & Box stagno IP65 + cablaggio + fissaggi         & \texteuro{}300 \\
+Installazione  & Squadra tecnica + noleggio cestello elevatore  & \texteuro{}1.300 \\
+Setup AI       & Fine-tuning modello, mapping ROI, validazione  & \texteuro{}1.300 \\
+\midrule
+\multicolumn{2}{l}{\textbf{TOTALE CapEx per Incrocio}} & \textbf{\texteuro{}4.700} \\
+\bottomrule
+\end{tabular}
+\caption{Costo di installazione per singolo incrocio medio. Coperto dalla fee una tantum della Fase 1.}
+\end{table}
+
+\subsection{Costi Operativi Ricorrenti (OpEx --- Per Incrocio / Anno)}
+
+L'hardware SmartLight è \textbf{solid-state} (Jetson, camere IP): nessuna parte meccanica soggetta a usura rapida. Il modello AI viene aggiornato periodicamente e distribuito via push remoto sull'intera flotta con costo fisso di R\&D (già nel budget team), trascurabile come quota per singolo incrocio. La connettività è una SIM IoT a bassa banda condivisa su piano aziendale multi-nodo, non un abbonamento individuale.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{>{\bfseries}l l r}
+\toprule
+Categoria & Dettaglio & Costo/Anno \\
+\midrule
+Manutenzione hardware & Visita preventiva ogni $\approx$2 anni + ricambi         & \texteuro{}150 \\
+Connettività          & SIM IoT low-bandwidth, quota piano condiviso multi-nodo  & \texteuro{}70  \\
+Cloud / monitoring    & Storage metriche, monitoring remoto, backup              & \texteuro{}60  \\
+Aggiornamenti SW/AI   & Quota deploy remoto (R\&D a costo fisso aziendale)       & \texteuro{}50  \\
+Supporto tecnico      & Quota helpdesk remoto (amortizzato su flotta)            & \texteuro{}40  \\
+\midrule
+\multicolumn{2}{l}{\textbf{TOTALE OpEx per Incrocio / Anno}} & \textbf{\texteuro{}370} \\
+\bottomrule
+\end{tabular}
+\caption{Costi operativi annui per incrocio a regime. I costi fissi aziendali (R\&D, sales, team) sono separati.}
+\end{table}
+
+% ==============================================================
+\section{Pricing SaaS verso le Città}
+% ==============================================================
+
+SmartLight adotta \textbf{due soli piani commerciali} per semplicità negoziale
+e chiarezza nella proposta alla PA. Il principio è che il canone SaaS deve
+essere \textbf{immediatamente sostenibile} per qualsiasi Comune, rendendo
+il ROI evidente anche ai più scettici. Il CapEx è già coperto dalla Fase 1.
+
+\begin{tcolorbox}[
+    enhanced, colback=blue!5!white, colframe=SmartBlue,
+    title=\textbf{I Due Piani SmartLight}, fonttitle=\bfseries\large,
+    boxrule=0.5mm, drop shadow
+]
+
+\textbf{\large Piano A --- Città Piccola}
+{\small (Comuni con meno di 50.000 abitanti, tipicamente 3--10 incroci)}
+
+\begin{tabular}{>{\bfseries}l p{9cm}}
+Canone              & \texteuro{}100 / incrocio / mese \\
+Include             & AI controllo semaforico adattivo, dashboard base (report mensile PDF), manutenzione remota inclusa \\
+Escluso             & Priorità bus/ambulanze, API dati, data monetization \\
+Fee Fase 1 (CapEx)  & Pacchetto fisso \texteuro{}5.000--7.000 (copre installazione hardware) \\
+Esempio (5 incroci) & \texteuro{}6.000 / anno di canone SaaS \\
+\end{tabular}
+
+\vspace{0.4cm}\hrule\vspace{0.4cm}
+
+\textbf{\large Piano B --- Città Grande}
+{\small (Comuni con più di 50.000 abitanti, tipicamente 20+ incroci)}
+
+\begin{tabular}{>{\bfseries}l p{9cm}}
+Canone              & \texteuro{}150 / incrocio / mese \\
+Include             & AI controllo adattivo, priorità Bus/Ambulanze, dashboard real-time, API dati, SLA 99.5\%, manutenzione inclusa, data monetization (dal 2028) \\
+Fee Fase 1 (CapEx)  & \texteuro{}4.700 / incrocio (scalato in proporzione al volume) \\
+Esempio (25 incroci) & \texteuro{}45.000 / anno di canone SaaS \\
+\end{tabular}
+
+\end{tcolorbox}
+
+\vspace{0.3cm}
+\noindent\textbf{Razionale del pricing:} prezzi volutamente accessibili per abbattere
+la barriera di ingresso nella PA italiana. Il margine nasce dal \textbf{volume}
+(molti incroci per città, molte città) e dalla struttura a costi fissi bassi
+(hardware già pagato in Fase 1, OpEx €370/anno).
+
+\subsection{ROI per il Comune --- Argomento di Vendita}
+
+\begin{tcolorbox}[
+    enhanced, colback=green!4!white, colframe=SmartGreen,
+    title=\textbf{Piano A --- 5 Incroci, Città Piccola}, boxrule=0.5mm
+]
+\begin{tabular}{lr}
+Costo SaaS annuo ($100 \times 12 \times 5$) & \textbf{\texteuro{}6.000 / anno} \\
+\midrule
+Risparmio carburante collettivo ($-25\%$ attese) & $\approx$\texteuro{}30.000 / anno \\
+CO$_2$ ridotta ($5 \times 87\,\text{t}$) & $\approx$435\,t CO$_2$ / anno \\
+\midrule
+\textbf{ROI netto per il Comune} & $\approx$ \textbf{5$\times$ il costo SaaS} \\
+\end{tabular}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+    enhanced, colback=green!4!white, colframe=SmartGreen,
+    title=\textbf{Piano B --- 25 Incroci, Città Grande}, boxrule=0.5mm
+]
+\begin{tabular}{lr}
+Costo SaaS annuo ($150 \times 12 \times 25$) & \textbf{\texteuro{}45.000 / anno} \\
+\midrule
+Risparmio carburante collettivo ($-25\%$ attese) & $\approx$\texteuro{}150.000 / anno \\
+CO$_2$ ridotta ($25 \times 87\,\text{t}$) & $\approx$2.175\,t CO$_2$ / anno \\
+Valore ESG / accesso fondi Green Deal EU & non quantificato \\
+\midrule
+\textbf{ROI netto per il Comune} & $\approx$ \textbf{3.3$\times$ il costo SaaS} \\
+\end{tabular}
+\end{tcolorbox}
+
+\noindent Il canone SaaS non è una spesa --- è un investimento con ritorno misurabile
+e certificabile. Questo è il cardine dell'argomentazione nelle trattative con
+gli assessori alla mobilità e gli uffici acquisti pubblici.
+
+\subsection{Margine Netto per Incrocio a Regime}
+
+Poiché il CapEx è recuperato interamente tramite la fee una tantum della Fase 1,
+il canone SaaS è \textbf{quasi interamente margine}, al netto del solo OpEx annuo.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l r r}
+\toprule
+\textbf{Voce} & \textbf{Piano A (\texteuro{}100/mese)} & \textbf{Piano B (\texteuro{}150/mese)} \\
+\midrule
+Ricavo SaaS annuo / incrocio          & \texteuro{}1.200 & \texteuro{}1.800 \\
+OpEx annuo                            & $-$\texteuro{}370 & $-$\texteuro{}370 \\
+CapEx (coperto da Fase 1)             & \texteuro{}0     & \texteuro{}0     \\
+\midrule
+\textbf{Margine netto / incrocio / anno} & \textbf{\texteuro{}830 (69\%)} & \textbf{\texteuro{}1.430 (79\%)} \\
+\bottomrule
+\end{tabular}
+\caption{Economics per singolo incrocio a regime. Il CapEx è già recuperato tramite la fee della Fase 1, quindi non pesa sul canone ricorrente.}
+\end{table}
+
+% ==============================================================
+\section{Proiezioni Finanziarie 2026--2030}
+% ==============================================================
+
+\subsection{Assunzioni del Modello}
+
+\begin{itemize}[nosep, topsep=4pt]
+    \item Il pilota reale (2 incroci) parte H2 2026 in shadow mode. Nessun ricavo SaaS nel 2026.
+    \item Dal 2027 inizia la vendita SaaS piena. Mix stimato: 50\% Piano A / 50\% Piano B, prezzo medio ponderato \textbf{\texteuro{}125/mese/incrocio}.
+    \item La \textbf{data monetization} (solo Piano B) è attivata a partire dal 2028, al raggiungimento di 50+ incroci totali.
+    \item I \textbf{ricavi una tantum} (Fase 1, audit + CapEx recovery) sono separati dal SaaS e calcolati conservativamente.
+    \item Il CapEx nuovi incroci è coperto dai ricavi Fase 1 o da bandi PNRR; non pesa sul FCF operativo.
+    \item I costi R\&D/Team crescono in modo controllato: team small (2--4 persone nel 2026--2027), poi graduale scalata.
+\end{itemize}
+
+\subsection{Tabella di Proiezione (Scenario Base --- Conservativo)}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{l r r r r r}
+\toprule
+\textbf{Voce} & \textbf{2026} & \textbf{2027} & \textbf{2028} & \textbf{2029} & \textbf{2030} \\
+\midrule
+\textbf{Incroci Attivi (SaaS)}        & 0          & 15         & 50          & 150         & 350         \\
+\midrule
+Ricavo SaaS (\texteuro{}125/mese avg.)  & \texteuro{}0 & \texteuro{}23k & \texteuro{}75k & \texteuro{}225k & \texteuro{}525k \\
+Ricavo Data Monetization (Piano B)    & \texteuro{}0 & \texteuro{}0   & \texteuro{}10k & \texteuro{}45k  & \texteuro{}105k \\
+Ricavo Fase 1 (una tantum, CapEx)     & \texteuro{}0 & \texteuro{}30k & \texteuro{}50k & \texteuro{}90k  & \texteuro{}130k \\
+\midrule
+\textbf{Ricavi Totali}                & \texteuro{}0   & \texteuro{}53k & \texteuro{}135k & \texteuro{}360k & \texteuro{}760k \\
+\midrule
+OpEx incroci (\texteuro{}370/incr.)   & \texteuro{}3k  & \texteuro{}6k  & \texteuro{}18k  & \texteuro{}55k  & \texteuro{}130k \\
+Costi R\&D \& Team                    & \texteuro{}22k & \texteuro{}50k & \texteuro{}75k  & \texteuro{}110k & \texteuro{}180k \\
+Marketing \& Business Dev.            & \texteuro{}0   & \texteuro{}5k  & \texteuro{}12k  & \texteuro{}25k  & \texteuro{}45k  \\
+\midrule
+\textbf{Costi Totali}                 & \texteuro{}25k & \texteuro{}61k & \texteuro{}105k & \texteuro{}190k & \texteuro{}355k \\
+\midrule
+\textbf{Free Cash Flow}               &
+    \textcolor{SmartRed}{\textbf{$-$\texteuro{}25k}} &
+    \textcolor{SmartRed}{\textbf{$-$\texteuro{}8k}} &
+    \textcolor{SmartGreen}{\textbf{$+$\texteuro{}30k}} &
+    \textcolor{SmartGreen}{\textbf{$+$\texteuro{}170k}} &
+    \textcolor{SmartGreen}{\textbf{$+$\texteuro{}405k}} \\
+\bottomrule
+\end{tabular}
+\caption{Proiezioni finanziarie 2026--2030 (scenario base, arrotondamenti al migliaio). I ricavi Fase 1 compensano il CapEx nuovi incroci. ARR 2030: \texteuro{}630k (SaaS + Data). FCF cumulato 2026--2030: $\approx$\texteuro{}570k.}
+\end{table}
+
+\begin{tcolorbox}[
+    enhanced, colback=green!5!white, colframe=SmartGreen,
+    title=\textbf{Milestone Finanziarie Chiave}, boxrule=0.5mm
+]
+\begin{itemize}[nosep, topsep=4pt]
+    \item \textbf{2026:} Pre-revenue. Costo netto $\approx$\texteuro{}25k (team + pilota + preparazione commerciale).
+    \item \textbf{2027:} Primi ricavi reali (\texteuro{}53k). Disavanzo SaaS quasi nullo ($-$\texteuro{}8k) grazie ai ricavi Fase 1.
+    \item \textbf{2028:} \textbf{Breakeven operativo.} $+$\texteuro{}30k FCF. 50 incroci = 3--5 città attive.
+    \item \textbf{2029:} Crescita accelerata. 150 incroci $\approx$ 8--10 città. FCF $+$\texteuro{}170k.
+    \item \textbf{2030:} ARR \texteuro{}630k. FCF $+$\texteuro{}405k. Modello pienamente scalato e autofinanziato.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Sensitivity Analysis --- Tre Scenari al 2030}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l r r r}
+\toprule
+\textbf{Scenario} & \textbf{Incroci 2030} & \textbf{ARR 2030} & \textbf{FCF 2030} \\
+\midrule
+\textbf{Pessimistico} (burocrazia lenta, 1--2 città/anno) & 100  & \texteuro{}225k & \texteuro{}60k  \\
+\textbf{Base} (3--5 città/anno, modello attuale)           & 350  & \texteuro{}630k & \texteuro{}405k \\
+\textbf{Ottimistico} (PNRR accelerato, 6--10 città/anno)  & 700  & \texteuro{}1.26M & \texteuro{}900k \\
+\midrule
+\multicolumn{4}{l}{\small Leva principale: velocità di approvazione PA e capacità del team Business Development.} \\
+\bottomrule
+\end{tabular}
+\caption{Sensitivity analysis su tre scenari di crescita al 2030.}
+\end{table}
+
+\noindent\textit{Nota sullo scenario pessimistico:} anche con soli 100 incroci attivi al 2030, il modello rimane profittevole (\texteuro{}60k FCF) e autosufficiente. Questo è il pavimento di sicurezza del business.
+
+% ==============================================================
+\section{Analisi della Sostenibilità Legale (Italia)}
+% ==============================================================
+
+\begin{description}[style=multiline, leftmargin=4.5cm, font=\bfseries\color{SmartBlue}]
+    \item[Affidamento Diretto] La Fase 1 (Audit) rientra ampiamente sotto la soglia dei \texteuro{}140.000 (art.\ 50 D.Lgs.\ 36/2023), riducendo i tempi di acquisizione da anni a settimane. Anche il canone SaaS annuo di una città piccola (es.\ \texteuro{}6.000) rimane abbondantemente sotto soglia.
+    \item[Spesa Corrente IT] Il canone SaaS mensile è classificabile come ``spesa corrente per servizi IT'', categoria già presente nei bilanci comunali, evitando l'iter (più complesso) dell'investimento infrastrutturale pluriennale.
+    \item[PNRR / Green Deal] La compliance ESG (CO$_2$ certificabile, mobilità sostenibile M2C2) allinea la spesa a KPI obbligatori per l'accesso ai fondi europei, rendendo SmartLight un facilitatore di finanziamenti.
+    \item[GDPR Compliance] Il modello edge-first garantisce che nessun dato personale lasci l'infrastruttura locale, semplificando l'approvazione del DPO comunale e riducendo il rischio di contestazioni privacy.
+    \item[Project Financing] Per estensioni su larga scala ($>$50 incroci), è proponibile un Project Financing: investimento privato iniziale, Comune paga canone su performance misurate.
+\end{description}
+
+% ==============================================================
+\section{Conclusioni e Next Steps}
+% ==============================================================
+
+SmartLight presenta un modello economico solido e difendibile: il CapEx è coperto
+dalla fee di ingresso in Fase 1, il canone SaaS è accessibile per qualsiasi PA
+(\texteuro{}100--150/mese/incrocio), il ROI per il Comune è 3--5$\times$ dimostrabile
+con dati reali, e anche nello scenario pessimistico il modello resta profittevole.
+La traiettoria verso i \texteuro{}600k+ di ARR al 2030 non dipende da megacontratti,
+ma dall'accumulo progressivo di contratti medio-piccoli tramite affidamento diretto.
+
+\vspace{0.4cm}
+\noindent\textbf{Azioni prioritarie per il 2026:}
+\begin{enumerate}[nosep, topsep=4pt]
+    \item Completare il pilota reale su 2 incroci (H2 2026) e pubblicare i risultati misurati.
+    \item Rilasciare la dashboard PA come strumento mostrabile nelle trattative commerciali.
+    \item Identificare 3--5 Comuni target per contratti Fase 1 (Audit) entro fine 2026.
+    \item Esplorare bandi PNRR ``Smart Cities'' per co-finanziare il CapEx dei primi 10--15 incroci.
+    \item Strutturare il primo accordo pilota di data monetization (anche informale).
+\end{enumerate}
+
+\vspace{1cm}
+\begin{center}
+    \textit{``SmartLight non chiede alle città di credere nella tecnologia ---}\\
+    \textit{chiede di leggere i dati del proprio incrocio.''}
+\end{center}
+
+\end{document}

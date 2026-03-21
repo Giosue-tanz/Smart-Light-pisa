@@ -460,14 +460,14 @@ def main():
     if dqn_model:
         reward_imp_dqn = ((dqn_results['avg_reward'] - fixed_results['avg_reward']) / abs(fixed_results['avg_reward'])) * 100
         veh_imp_dqn = ((dqn_results['avg_vehicles'] - fixed_results['avg_vehicles']) / fixed_results['avg_vehicles']) * 100
-        wait_imp_dqn = ((fixed_results['avg_wait'] - dqn_results['avg_wait']) / fixed_results['avg_wait']) * 100
+        wait_imp_dqn = ((dqn_results['avg_wait'] - fixed_results['avg_wait']) / fixed_results['avg_wait']) * 100
         
         print(f"DQN v3.4:  Reward {reward_imp_dqn:+.1f}% | Veicoli {veh_imp_dqn:+.1f}% | Attesa {wait_imp_dqn:+.1f}%")
     
     if ppo_model:
         reward_imp_ppo = ((ppo_results['avg_reward'] - fixed_results['avg_reward']) / abs(fixed_results['avg_reward'])) * 100
         veh_imp_ppo = ((ppo_results['avg_vehicles'] - fixed_results['avg_vehicles']) / fixed_results['avg_vehicles']) * 100
-        wait_imp_ppo = ((fixed_results['avg_wait'] - ppo_results['avg_wait']) / fixed_results['avg_wait']) * 100
+        wait_imp_ppo = ((ppo_results['avg_wait'] - fixed_results['avg_wait']) / fixed_results['avg_wait']) * 100
         
         print(f"PPO v4.0:  Reward {reward_imp_ppo:+.1f}% | Veicoli {veh_imp_ppo:+.1f}% | Attesa {wait_imp_ppo:+.1f}%")
     

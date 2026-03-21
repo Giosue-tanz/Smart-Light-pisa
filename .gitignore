@@ -163,4 +163,19 @@ cython_debug/
 *.zip
 *.mp4
 *.avi
-videos/
+
+# Virtual environment
+smartlight_env/
+
+# SUMO installation
+sumo_tools/
+
+# LaTeX build artifacts
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.toc
+docs/*.synctex.gz
+
+# Checkpoints (tracked via releases, not git)
+checkpoints/

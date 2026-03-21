@@ -1,0 +1,15 @@
+# data/dataset.yaml
+# Configurazione per addestramento YOLOv8 - Smart Light Pisa
+path: ./data
+train: images/train
+val: images/val
+
+names:
+  0: person
+  1: bicycle
+  2: car
+  3: motorcycle
+  4: bus
+  5: truck
+  6: wheelchair
+  7: crutches

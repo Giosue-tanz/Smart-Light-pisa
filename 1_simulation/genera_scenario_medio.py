@@ -7,6 +7,7 @@ import os
 import sys
 import xml.etree.ElementTree as ET
 import random
+import argparse
 
 SUMO_HOME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sumo_tools", "sumo-1.22.0")
 NET_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sumo_config", "pisa.net.xml")
@@ -67,11 +68,18 @@ PEDESTRIAN_COUNT = 200
 
 
 def main():
-    random.seed(42)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--quiet", action="store_true")
+    args, _ = parser.parse_known_args()
     
-    print("=" * 55)
-    print("🚦 GENERATORE SCENARIO MEDIO - Pisa Città Completa")
-    print("=" * 55)
+    seed = args.seed
+    random.seed(seed)
+    
+    if not args.quiet:
+        print("=" * 55)
+        print(f"🚦 GENERATORE SCENARIO MEDIO - Pisa Città Completa (Seed: {seed})")
+        print("=" * 55)
     
     # ===== STEP 1: Genera trip base con randomTrips =====
     print("\n📍 Step 1: Generazione trip base...")
@@ -88,7 +96,7 @@ def main():
         "-p", str(period),
         "--fringe-factor", "5",
         "--validate",
-        "--seed", "42",
+        "--seed", str(seed),
     ]
     
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -113,7 +121,7 @@ def main():
         "--pedestrians",
         "--prefix", "ped",
         "--validate",
-        "--seed", "99",
+        "--seed", str(seed + 57),
     ]
     
     result = subprocess.run(cmd_ped, capture_output=True, text=True)

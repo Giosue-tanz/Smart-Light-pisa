@@ -9,8 +9,9 @@ import sumolib
 # ==============================
 # CONFIGURAZIONE AMBIENTE SUMO
 # ==============================
-SUMO_HOME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sumo_tools", "sumo-1.22.0")
-SUMO_CONFIG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sumo_config", "pisa.sumocfg")
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SUMO_HOME = os.path.join(PROJECT_ROOT, "sumo_tools", "sumo-1.22.0")
+SUMO_CONFIG = os.path.join(PROJECT_ROOT, "1_simulation", "sumo_config", "pisa.sumocfg")
 
 if 'SUMO_HOME' not in os.environ:
     os.environ['SUMO_HOME'] = SUMO_HOME

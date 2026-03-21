@@ -1,0 +1,25 @@
+Totale Semafori Trovati: 23
+--------------------------------
+ID: cluster_10655267109_10655267110_33715701 | Corsie controllate: 18
+ID: cluster_256245975_31770756 | Corsie controllate: 18
+ID: cluster_31770755_3444351897 | Corsie controllate: 18
+ID: 187390194 | Corsie controllate: 16
+ID: 33681447 | Corsie controllate: 16
+ID: 3680774442 | Corsie controllate: 16
+ID: joinedS_213114083_38037891 | Corsie controllate: 14
+ID: 704411639 | Corsie controllate: 10
+ID: cluster_12358102210_12358102217_12358102223_2674835073_#1more | Corsie controllate: 10
+ID: joinedS_2700665511_cluster_269027883_709216891 | Corsie controllate: 10
+ID: 213375181 | Corsie controllate: 9
+ID: 38037854 | Corsie controllate: 9
+ID: 5253760930 | Corsie controllate: 9
+ID: cluster_292067252_610987317 | Corsie controllate: 9
+ID: joinedS_1386672976_1386672980_31770712_3178033659 | Corsie controllate: 9
+ID: 278246118 | Corsie controllate: 8
+ID: 245927308 | Corsie controllate: 6
+ID: 251208763 | Corsie controllate: 6
+ID: 31770821 | Corsie controllate: 6
+ID: cluster_8254824560_8443645582_8443645594_8443645595 | Corsie controllate: 6
+ID: 259969376 | Corsie controllate: 3
+ID: 33715717 | Corsie controllate: 3
+ID: cluster_2474030085_2474030088 | Corsie controllate: 3

@@ -1,0 +1,136 @@
+MAPPATURA INTEGRALE SEMAFORI E VIE - PISA
+Numero di logiche semaforiche: 23
+================================================================================
+
+ID SEMAFORO: 187390194
+VIE PRINCIPALI:
+  - Via Piave
+  - Via Piero Gobetti
+  - Via Ugo Rindi
+--------------------------------------------------
+ID SEMAFORO: 213375181
+VIE PRINCIPALI:
+  - Via Giacomo Puccini
+  - Via dei Condotti
+--------------------------------------------------
+ID SEMAFORO: 245927308
+VIE PRINCIPALI:
+  - Via Giuseppe Montanelli
+  - Via Sant&apos;Agostino
+--------------------------------------------------
+ID SEMAFORO: 251208763
+VIE PRINCIPALI:
+  - Via Giuseppe Garibaldi
+--------------------------------------------------
+ID SEMAFORO: 259969376
+VIE PRINCIPALI:
+  - Via Cisanello
+--------------------------------------------------
+ID SEMAFORO: 278246118
+VIE PRINCIPALI:
+  - Lungarno Gambacorti
+  - Ponte Solferino
+  - Via Francesco Crispi
+--------------------------------------------------
+ID SEMAFORO: 31770821
+VIE PRINCIPALI:
+  - Via Francesco Galdi
+  - Via San Giovanni Bosco
+  - Via Spartaco Carlini
+--------------------------------------------------
+ID SEMAFORO: 33681447
+VIE PRINCIPALI:
+  - Lungarno Antonio Pacinotti
+  - Lungarno Ranieri Simonelli
+  - Piazza Solferino
+  - Ponte Solferino
+--------------------------------------------------
+ID SEMAFORO: 33715717
+VIE PRINCIPALI:
+  - Via Enrico Fermi
+  - Via Nicola Pisano
+  - Via Rustichello da Pisa
+--------------------------------------------------
+ID SEMAFORO: 3680774442
+VIE PRINCIPALI:
+  - Via Bonanno Pisano
+  - Via Carlo Francesco Gabba
+  - Via Risorgimento
+--------------------------------------------------
+ID SEMAFORO: 38037854
+VIE PRINCIPALI:
+  - Via Contessa Matilde
+  - Via Piave
+--------------------------------------------------
+ID SEMAFORO: 5253760930
+VIE PRINCIPALI:
+  - Via Del Buschetto
+  - Via Santa Bibbiana
+--------------------------------------------------
+ID SEMAFORO: 704411639
+VIE PRINCIPALI:
+  - Via Carlo Matteucci
+  - Via Giacomo Matteotti
+  - Via San Michele degli Scalzi
+--------------------------------------------------
+ID SEMAFORO: cluster_10655267109_10655267110_33715701
+VIE PRINCIPALI:
+  - Via Bonanno Pisano
+  - Via Pietro da Pisa
+  - Via Turino Vanni
+--------------------------------------------------
+ID SEMAFORO: cluster_12358102210_12358102217_12358102223_2674835073_#1more
+VIE PRINCIPALI:
+  - Lungarno Giacomo Leopardi
+  - Piazza di Terzanaia
+  - Via Bonanno Pisano
+--------------------------------------------------
+ID SEMAFORO: cluster_2474030085_2474030088
+VIE PRINCIPALI:
+  - Via Fiorentina
+  - Via Paolo Tronci
+--------------------------------------------------
+ID SEMAFORO: cluster_256245975_31770756
+VIE PRINCIPALI:
+  - Via Gino Luzzato
+  - Via Manara Valgimigli
+  - Via Pietro Nenni
+--------------------------------------------------
+ID SEMAFORO: cluster_292067252_610987317
+VIE PRINCIPALI:
+  - Via Pietrasantina
+  - Via delle Fiamme Gialle
+--------------------------------------------------
+ID SEMAFORO: cluster_31770755_3444351897
+VIE PRINCIPALI:
+  - Via Cisanello
+  - Via Pietro Nenni
+--------------------------------------------------
+ID SEMAFORO: cluster_8254824560_8443645582_8443645594_8443645595
+VIE PRINCIPALI:
+  - Lungarno Giacomo Leopardi
+  - Ponte dell&apos;Impero
+  - Via Aurelia Nord
+  - Via Ippica
+--------------------------------------------------
+ID SEMAFORO: joinedS_1386672976_1386672980_31770712_3178033659
+VIE PRINCIPALI:
+  - Piazza Caduti di Cefalonia div. Acqui
+  - Piazza Caduti di Cefalonia divisione Acqui
+  - Rotatoria Vigili del Fuoco caduti in servizio
+  - Via Giacomo Matteotti
+  - Viale delle Piagge
+--------------------------------------------------
+ID SEMAFORO: joinedS_213114083_38037891
+VIE PRINCIPALI:
+  - Largo del Parlascio
+  - Via Contessa Matilde
+  - Via Luigi Bianchi
+  - Via del Brennero
+--------------------------------------------------
+ID SEMAFORO: joinedS_2700665511_cluster_269027883_709216891
+VIE PRINCIPALI:
+  - Via Alessandro Volpi
+  - Via Giuseppe Averani
+  - Via di Pratale
+--------------------------------------------------
