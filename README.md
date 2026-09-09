@@ -4,7 +4,7 @@
 
 ### Adaptive Traffic Signal Control via Reinforcement Learning & Computer Vision
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: Custom](https://img.shields.io/badge/License-Custom%20(Commercial%20w/%20Royalties)-red.svg)](./LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.9-orange.svg)](https://pytorch.org/)
 [![SUMO](https://img.shields.io/badge/SUMO-Traffic%20Simulation-yellow.svg)](https://sumo.dlr.de/)
@@ -276,9 +276,12 @@ Everything is documented. The code runs. The models are trained. What's missing 
 
 ## 📜 License
 
-This project is released under the **MIT License** — you are free to use, modify, and distribute it, including for commercial purposes, as long as attribution is maintained.
+This project is released under a **Custom Commercial and Academic License**. 
+- **Academic and personal use** is completely free and encouraged.
+- **Commercial use** (integrating it into business services, products, or public infrastructure for profit) is strictly prohibited without a prior written commercial agreement.
 
----
+If you intend to use this project commercially, you must contact the author to establish a royalty or licensing agreement.
+See [`LICENSE`](./LICENSE) for full details.
 
 <div align="center">
 

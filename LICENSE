@@ -1,17 +1,34 @@
-MIT License
+SMART LIGHT PISA - CUSTOM COMMERCIAL AND ACADEMIC LICENSE
+Copyright (c) 2024-2026 Giosuè Aiello
 
-Copyright (c) 2024–2026 Giosuè Aiello
+This software and associated documentation files (the "Software") are provided 
+under the following conditions:
 
+1. ACADEMIC AND NON-COMMERCIAL USE
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+of this Software to use, copy, modify, and distribute the Software solely for 
+academic, educational, research, and personal (non-commercial) purposes, 
+subject to the following conditions:
+- The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+- The Software may not be used to generate revenue, directly or indirectly.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+2. COMMERCIAL USE AND ROYALTIES
+Any use of this Software, in whole or in part, for commercial purposes, 
+including but not limited to integrating it into a commercial product, 
+using it to provide commercial services, or deploying it in a production 
+environment by a for-profit or government entity (such as municipal transport 
+authorities), is STRICTLY PROHIBITED without a prior written commercial 
+agreement.
 
+Commercial use is permitted and encouraged, PROVIDED THAT the user contacts 
+the copyright holder to negotiate a royalty agreement, profit-sharing model, 
+or licensing fee prior to any commercial deployment.
+
+To request a commercial license, contact:
+Email: giosue.tanz@gmail.com
+
+3. DISCLAIMER OF WARRANTY
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
